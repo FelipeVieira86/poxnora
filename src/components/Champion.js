@@ -10,14 +10,12 @@ class Champion extends Component {
   // championInfo() {
   //   console.log('list')
   // }
-
+ 
   render() {
-    const { name } = this.props.champ;
+    const { name } = this.props.attr;
     return (
-      <div>
-        <p onClick={this.championInfo} className="champion">
-          {name}
-        </p>
+      <div className="champion-name-container">
+        <p onClick={this.championInfo} className="champion">{name}</p>
       </div>
     );
   }

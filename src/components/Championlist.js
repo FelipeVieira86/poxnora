@@ -1,20 +1,39 @@
-import React, { Component } from 'react';
-import ChampionsData from '../data/championsdata';
-// import Champion from './Champion';
+import React from 'react';
+import Axios from 'axios';
+import Champion from './Champion';
 import ChampionInfo from './ChampionInfo';
+import { useAsync } from 'react-async';
 
-class ChampionList extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-          {ChampionsData.champs.map(champion => (
-            <ChampionInfo champ={champion}/>
-          ))}
-        </div>
+/* Usse esse import para os testes e comente a linha 24*/
+import { champs } from '../data/champs.json';
+
+import './style.css';
+
+const getChamps = async () => {
+  return new Promise(async (resolved, rejected) => {
+    await Axios.get('https://www.poxnora.com/api/feed.do?t=json')
+      .then(({ data }) => {
+        resolved(data.champs);
+      })
+      .catch(err => {
+        rejected(err);
+      });
+  });
+};
+
+export default function ChampionList() {
+  //const {data: champs} = useAsync({promiseFn: getChamps});
+  return (
+    <div>
+      <div className="champion-count">{champs.length} Champions</div>
+      <div className="champion-list">
+        {typeof champs !== 'undefined'
+          ? champs.map((champion, key) => (
+              // <ChampionInfo key={key} attr={champion} />
+              <Champion key={key} attr={champion} />
+            ))
+          : 'Carregando...'}
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default ChampionList;
