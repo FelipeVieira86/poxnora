@@ -1,8 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 import Champion from './Champion';
-import ChampionInfo from './ChampionInfo';
-import { useAsync } from 'react-async';
+// import ChampionInfo from './ChampionInfo';
+// import { useAsync } from 'react-async';
 
 /* Usse esse import para os testes e comente a linha 24*/
 import { champs } from '../data/champs.json';

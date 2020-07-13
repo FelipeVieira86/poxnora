@@ -24,11 +24,13 @@ class ChampionInfo extends Component {
       UNCOMMON: 'uncom',
       RARE: 'rare',
       EXOTIC: 'exotic',
+      LEGENDARY: undefined, //mudar
+      LIMITED: undefined //mudar
     };
 
     const attributes = {
       cardBackground: `url('${assetEndpoint}/frames/large/front/1.gif'),
-                      url('${assetEndpoint}/frames/large/lg_frame_rarity_${rarityMap[rarity]}.gif')`,
+                      url('${assetEndpoint}/frames/large/lg_frame_rarity_${rarityMap[rarity] || 'exotic'}.gif')`,
       cardFaction: `url('${assetEndpoint}/frames/large/faction_1_1.png'),
                     url('${assetEndpoint}/frames/large/faction_1_2.png')`,
     };
