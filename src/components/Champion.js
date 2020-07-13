@@ -23,7 +23,9 @@ export default class Champion extends Component {
           <div className="modal-header">
             <button className='modal-close right'>X</button>
           </div>
-          <ChampionInfo attr={this.props.attr}/>
+          <div className="modal-body">
+            <ChampionInfo attr={this.props.attr}/>
+          </div>
         </Modal>
       </div>
     );
