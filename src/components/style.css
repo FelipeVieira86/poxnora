@@ -3,9 +3,43 @@ body {
   color: white;
 }
 
+.champion-count {
+  box-sizing: border-box;
+  padding: 1%;
+  margin-bottom: 2%;
+  width: 100%;
+  font-weight: 700;
+  border-bottom: 1px solid white;
+}
+
+.champion-list-container {
+  border: white 1px solid;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 2%;
+  width: 455px;
+}
+
 .champion-list {
+  margin-left: 7%;
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: column; mudança para o Champion component */
+}
+
+.champion-name-container {
+  width: 50%;
+}
+/* style para lista de nomes das runas */
+p.champion {
+ margin: 0;
+ cursor: pointer;
+ width: fit-content;
+}
+
+p.champion:hover {
+  color: lightskyblue;
+  text-decoration: underline;
 }
 
 .champion-info {

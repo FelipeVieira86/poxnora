@@ -14,8 +14,8 @@ class Champion extends Component {
  
   render() {
     return (
-      <div>
-        <p onClick={this.championInfo} className="champion">{this.props.name}</p>
+      <div className="champion-name-container">
+        <p onClick={this.championInfo} className="champion">{this.props.attr.name}</p>
       </div>
     );
   }
