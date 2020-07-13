@@ -5,8 +5,12 @@ body {
 
 .App {
   display: flex;
+  justify-content: center;
 }
 
+.column {
+  max-width: 45%;
+}
 .rune-count {
   box-sizing: border-box;
   padding: 1%;
@@ -23,7 +27,7 @@ body {
   height: fit-content;
   margin: 0;
   padding-bottom: 1%;
-  width: 400px;
+  width: 100%;
 }
 
 .rune-list {
@@ -34,11 +38,12 @@ body {
 }
 
 .rune-name-container {
-  width: 50%;
+  width: 33%;
 }
 /* style para lista de nomes das runas */
 p.champion, p.spell, p.equip, p.relic {
   margin: 0;
+  font-size: 14px;
   cursor: pointer;
   width: fit-content;
 }

@@ -24,7 +24,7 @@ const getChamps = async () => {
 export default function ChampionList() {
   //const {data: champs} = useAsync({promiseFn: getChamps});
   return (
-    <div>
+    <div className="rune-list-container">
       <div className="rune-count">{champs.length} Champions</div>
       <div className="rune-list">
         {typeof champs !== 'undefined'

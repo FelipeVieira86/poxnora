@@ -8,19 +8,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="rune-list-container">
-          <ChampionList />
+        <div className="column">
+        <ChampionList />
         </div>
-        <div className="rune-list-container">
+        <div className="column">
           <SpellList />
-        </div>
-        <div>
-          <div className="rune-list-container">
-            <RelicList />
-          </div>
-          <div className="rune-list-container">
-            <EquipList />
-          </div>
+          <RelicList />
+          <EquipList />
         </div>
       </div>
     );

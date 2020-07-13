@@ -7,7 +7,7 @@ import './style.css';
 
 export default function RelicList() {
   return (
-    <div>
+    <div className="rune-list-container">
       <div className="rune-count">{relics.length} Relics</div>
       <div className="rune-list">
         {typeof relics !== 'undefined'

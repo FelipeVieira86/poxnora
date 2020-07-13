@@ -5,7 +5,7 @@ import Equip from './Equip'
 export default function SpellList() {
   //const {data: champs} = useAsync({promiseFn: getChamps});
   return (
-    <div>
+    <div className="rune-list-container">
       <div className="rune-count">{equips.length} Equips</div>
       <div className="rune-list">
         {typeof equips !== 'undefined'
