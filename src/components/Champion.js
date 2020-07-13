@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-// import ChampionInfo from './ChampionInfo';
+import ChampionInfo from './ChampionInfo';
 
-class Champion extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.championInfo = this.championInfo.bind(this);
-  // }
+import 'materialize-css/dist/css/materialize.min.css';
+import { Modal } from 'react-materialize';
 
-  // championInfo() {
-  //   console.log('list')
-  // }
+import '../styles/modal.css';
+
+export default class Champion extends Component {
  
   render() {
     const { name } = this.props.attr;
+    const trigger = <p className="champion">{name}</p>;
+
+    const modalOptions = {
+      preventScrolling: false,
+      bottomSheet: false
+    };
+
     return (
       <div className="champion-name-container">
-        <p onClick={this.championInfo} className="champion">{name}</p>
+        <Modal trigger={trigger} options={modalOptions} >
+          <div className="modal-header">
+            <button className='modal-close right'>X</button>
+          </div>
+          <ChampionInfo attr={this.props.attr}/>
+        </Modal>
       </div>
     );
   }
 }
-
-export default Champion;
