@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import ChampionInfo from './ChampionInfo';
+// import ChampionInfo from './ChampionInfo';
 
 class Champion extends Component {
-  
   // constructor(props) {
   //   super(props);
   //   this.championInfo = this.championInfo.bind(this);
@@ -11,11 +10,14 @@ class Champion extends Component {
   // championInfo() {
   //   console.log('list')
   // }
- 
+
   render() {
+    const { name } = this.props.champ;
     return (
       <div>
-        <p onClick={this.championInfo} className="champion">{this.props.name}</p>
+        <p onClick={this.championInfo} className="champion">
+          {name}
+        </p>
       </div>
     );
   }
