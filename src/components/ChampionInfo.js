@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 
- import './style.css';
+import './style.css';
+
+const modal = (attr) => {
+
+};
 
 class ChampionInfo extends Component {
 
   render() {
     const assetEndpoint = 'https://d2aao99y1mip6n.cloudfront.net/_themes/global';
     const {
+      hash,
       rarity,
       name,
       noraCost, damage,
@@ -19,7 +24,8 @@ class ChampionInfo extends Component {
     const rarityMap = {
       COMMON: 'com',
       UNCOMMON: 'uncom',
-      RARE: 'rare'
+      RARE: 'rare',
+      EXOTIC: 'exotic'
     };
 
     const attributes = {
@@ -27,29 +33,29 @@ class ChampionInfo extends Component {
                       url('${assetEndpoint}/frames/large/lg_frame_rarity_${rarityMap[rarity]}.gif')`,
       cardFaction: `url('${assetEndpoint}/frames/large/faction_1_1.png'),
                     url('${assetEndpoint}/frames/large/faction_1_2.png')`
-      }
+    };
 
     return (
       <div className="champion-info" style={{backgroundImage: attributes.cardBackground}}>
         <div className="rune-front">
           <div className="rune-info">
-            <div className="rune-faction"></div>
+            <div className="rune-faction" style={{backgroundImage: attributes.cardFaction}} ></div>
             <span className="rune-name">{name}</span>
             <span className="rune-cost">{noraCost}</span>
           </div>
           <div className="rune-body">
             <img
               className="rune-image"
-              src={`https://vignette.wikia.nocookie.net/poxnorafans/images/f/ff/${name.replace(' ', '_')}.jpg`}
+              src={`https://d2aao99y1mip6n.cloudfront.net/images/runes/lg/${hash}.jpg`}
               alt=""
             />
           </div>
           <div className="rune-stats">
-            <div className="hidden rune-atk">{damage}</div>
-            <div className="hidden rune-spd">{speed}</div>
-            <div className="hidden rune-rng">{maxRng}</div>
-            <div className="hidden rune-def">{defense}</div>
-            <div className="hidden rune-hp">{hitPoints}</div>
+            <div className="rune-data">{damage}</div>
+            <div className="rune-data">{speed}</div>
+            <div className="rune-data">{maxRng}</div>
+            <div className="rune-data">{defense}</div>
+            <div className="rune-data">{hitPoints}</div>
           </div>
         </div>
         <div className="rune-back">

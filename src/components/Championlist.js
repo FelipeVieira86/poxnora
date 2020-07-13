@@ -3,6 +3,9 @@ import Axios from 'axios';
 import ChampionInfo from './ChampionInfo';
 import {useAsync} from 'react-async';
 
+/* Usse esse import para os testes e comente a linha 24*/
+import {champs} from '../data/champs.json';
+
 import './style.css';
 
 const getChamps = async () => {
@@ -18,17 +21,15 @@ const getChamps = async () => {
 };
 
 export default function ChampionList() {
-  const {data} = useAsync({promiseFn: getChamps});
-  //let data = demo;
+  //const {data: champs} = useAsync({promiseFn: getChamps});
   return (
     <div className='champion-list'>
       {
-        typeof(data) !== 'undefined' ?
-          data.slice(0,10).map((champion, key) => (
+        typeof(champs) !== 'undefined' ?
+          champs.slice(0,10).map((champion, key) => (
             <ChampionInfo key={key} attr={champion} />
           )) : 'Carregando...'
       }
     </div>
   );
 }
-
