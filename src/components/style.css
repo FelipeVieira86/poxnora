@@ -1,0 +1,79 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.champion-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.champion-info {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  background: url('https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/front/1.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 332px;
+  height: 418px;
+  margin: auto;
+}
+
+.champion-info .rune-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.champion-info .rune-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+  width: 100%;
+}
+
+.champion-info .rune-info .rune-name {
+  text-shadow: 1px 2px 1px #000000;
+  font-style: arial;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.champion-info .rune-faction {
+  background-image: '';
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+}
+
+.champion-info .rune-body {
+  width: 275px;
+  height: 280px;
+}
+
+.champion-info .rune-front .rune-image {
+  position: absolute;
+  width: 275px;
+  margin-top: -15px;
+  z-index: -1;
+}
+
+.champion-info .rune-stats {
+  background: url('https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/rune_stats.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 36px;
+}
+
+.hidden {
+  display: none;
+}

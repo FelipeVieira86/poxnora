@@ -3,6 +3,13 @@ body {
   color: white;
 }
 
+/*------ Lizzard ---------*/
+
+.app {
+  display: flex;
+
+}
+
 .champion {
   text-decoration: underline;
   text-decoration-color: white;

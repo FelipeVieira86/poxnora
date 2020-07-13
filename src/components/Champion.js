@@ -9,7 +9,6 @@ class Champion extends Component {
   }
 
   championInfo() {
-    console.log('list')
     return <ChampionInfo name={this.props.name}/>;
   }
  
