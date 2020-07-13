@@ -12,6 +12,11 @@
   margin-top: -15px;
 }
 
+.modal .modal-body {
+  display: flex;
+  justify-content: space-around;
+}
+
 .modal-footer {
   display: none;
 }
