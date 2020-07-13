@@ -10,6 +10,7 @@ class ChampionList extends Component {
         <div>
           {ChampionsData.map(champion => (
             <ChampionInfo
+              type={champion.type}
               key={champion.key}
               image={champion.image}
               rarity={champion.rarity}
@@ -22,6 +23,15 @@ class ChampionList extends Component {
               rng={champion.range}
               def={champion.def}
               hp={champion.hp}
+              flavor={champion.flavor}
+              ability1={champion.ability1}
+              ability2={champion.ability2}
+              abilities={champion.abilities}
+              limit={champion.limit}
+              races={champion.race}
+              classes={champion.class}
+              size={champion.size}
+              exp={champion.exp}
             />
           ))}
         </div>
