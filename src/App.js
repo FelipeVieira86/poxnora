@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import ChampionList from './components/Championlist';
 
-class App extends Component {  
+import M from "materialize-css";
+
+class App extends Component {
+
+  componentDidMount() {
+    M.AutoInit();
+  }
+
   render() {
     return (
       <div className="App">
         <div className="champion-list-container">
-        <ChampionList />
+          <ChampionList />
         </div>
       </div>
     );

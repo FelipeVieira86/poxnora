@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-const modal = (attr) => {
-
-};
-
 class ChampionInfo extends Component {
 
   render() {
