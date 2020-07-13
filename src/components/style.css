@@ -11,6 +11,7 @@ body {
 .column {
   max-width: 45%;
 }
+
 .rune-count {
   box-sizing: border-box;
   padding: 1%;
@@ -34,7 +35,6 @@ body {
   margin: 3%;
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; mudança para o Champion component */
 }
 
 .rune-name-container {
