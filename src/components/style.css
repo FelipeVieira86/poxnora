@@ -119,3 +119,8 @@ p.champion:hover {
 .hidden {
   display: none;
 }
+
+.rune-cost {
+  position: relative;
+  bottom: 5px;
+}
