@@ -18,7 +18,7 @@ export default class Champion extends Component {
     };
 
     return (
-      <div className="champion-name-container">
+      <div className="rune-name-container">
         <Modal trigger={trigger} options={modalOptions} >
           <div className="modal-header">
             <button className='modal-close right'>X</button>

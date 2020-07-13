@@ -16,8 +16,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="champion-list-container">
-          <ChampionList />
+        <div className="column">
+        <ChampionList />
         </div>
         <div className="column">
           <SpellList />
