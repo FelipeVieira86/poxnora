@@ -157,3 +157,13 @@ body {
   text-align: center;
   width: 46px;
 }
+
+.rune-back {
+  background-image: url('https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/back/1.gif'); 
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 332px;
+  height: 424px;
+  top: 0;
+  left: 332px;
+}
