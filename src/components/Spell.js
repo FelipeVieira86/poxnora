@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // import ChampionInfo from './ChampionInfo';
 
-class Champion extends Component {
+class Spell extends Component {
   // constructor(props) {
   //   super(props);
   //   this.championInfo = this.championInfo.bind(this);
   // }
 
-  // championInfo() {
+  // spellInfo() {
   //   console.log('list')
   // }
  
@@ -15,10 +15,10 @@ class Champion extends Component {
     const { name } = this.props.attr;
     return (
       <div className="rune-name-container">
-        <p onClick={this.championInfo} className="champion">{name}</p>
+        <p onClick={this.spellInfo} className="spell">{name}</p>
       </div>
     );
   }
 }
 
-export default Champion;
+export default Spell;

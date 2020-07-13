@@ -3,7 +3,11 @@ body {
   color: white;
 }
 
-.champion-count {
+.App {
+  display: flex;
+}
+
+.rune-count {
   box-sizing: border-box;
   padding: 1%;
   margin-bottom: 2%;
@@ -12,32 +16,34 @@ body {
   border-bottom: 1px solid white;
 }
 
-.champion-list-container {
+.rune-list-container {
   border: white 1px solid;
   border-radius: 10px;
   box-sizing: border-box;
-  margin: 2%;
-  width: 455px;
+  height: fit-content;
+  margin: 0;
+  padding-bottom: 1%;
+  width: 400px;
 }
 
-.champion-list {
-  margin-left: 7%;
+.rune-list {
+  margin: 3%;
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; mudança para o Champion component */
 }
 
-.champion-name-container {
+.rune-name-container {
   width: 50%;
 }
 /* style para lista de nomes das runas */
-p.champion {
- margin: 0;
- cursor: pointer;
- width: fit-content;
+p.champion, p.spell, p.equip, p.relic {
+  margin: 0;
+  cursor: pointer;
+  width: fit-content;
 }
 
-p.champion:hover {
+p.champion:hover, p.spell:hover, p.equip:hover, p.relic:hover {
   color: lightskyblue;
   text-decoration: underline;
 }
@@ -59,7 +65,6 @@ p.champion:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .champion-info .rune-info {
@@ -70,7 +75,8 @@ p.champion:hover {
   width: 270px;
 }
 
-.champion-info .rune-info .rune-name, .rune-cost{
+.champion-info .rune-info .rune-name,
+.rune-cost {
   text-shadow: 1px 2px 1px #000000;
   font-style: arial;
   font-size: 17px;
