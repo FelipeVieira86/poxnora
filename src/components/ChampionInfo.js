@@ -58,7 +58,7 @@ class ChampionInfo extends Component {
             <div className="rune-data">{hitPoints}</div>
           </div>
         </div>
-        <div className="rune-back">
+        {/* <div className="rune-back">
           <img
             src={`https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/back/${this.props.faction1}.gif`}
             alt=""
@@ -138,7 +138,7 @@ class ChampionInfo extends Component {
         </div>
         <div className="rune-set">
           Expansion: <span className="rune-back-attributes-value">{this.props.exp}</span>
-        </div>
+        </div> */}
       </div>
     );
   }

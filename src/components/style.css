@@ -70,7 +70,7 @@ p.champion:hover {
   width: 270px;
 }
 
-.champion-info .rune-info .rune-name {
+.champion-info .rune-info .rune-name, .rune-cost{
   text-shadow: 1px 2px 1px #000000;
   font-style: arial;
   font-size: 17px;

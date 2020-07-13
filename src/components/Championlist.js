@@ -28,9 +28,9 @@ export default function ChampionList() {
       <div className="champion-count">{champs.length} Champions</div>
       <div className="champion-list">
         {typeof champs !== 'undefined'
-          ? champs.map((champion, key) => (
-              // <ChampionInfo key={key} attr={champion} />
-              <Champion key={key} attr={champion} />
+          ? champs.slice(0,10).map((champion, key) => (
+              <ChampionInfo key={key} attr={champion} />
+              // <Champion key={key} attr={champion} />
             ))
           : 'Carregando...'}
       </div>
