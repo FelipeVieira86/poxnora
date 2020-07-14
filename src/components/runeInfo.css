@@ -1,0 +1,280 @@
+.rune-cost {
+  position: relative;
+  bottom: 5px;
+}
+
+.rune-container {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.rune-container,
+.rune-preview {
+  width: 664px;
+  height: 428px;
+}
+
+.rune-front-frame {
+  top: 0;
+  left: 10px;
+}
+
+.rune-front-image {
+  top: 47px;
+  left: 41px;
+  width: 270px;
+  height: 310px;
+  z-index: -9999;
+}
+
+.rune-front-rarity {
+  z-index: -8999;
+  top: 0;
+  left: 10px;
+}
+
+.rune-front-faction {
+  width: 30px;
+  height: 22px;
+  top: 34px;
+  left: 50px;
+}
+
+.rune-faction-icon-1 {
+  left: 0;
+}
+
+.rune-faction-icon-2 {
+  right: 0;
+}
+
+.rune-back-name,
+.rune-artist,
+.rune-front-name,
+.rune-set {
+  width: 240px;
+}
+
+.rune-front-name {
+  top: 36px;
+  left: 55px;
+  text-align: center;
+  font: bold 17px arial, sans-serif;
+  color: #ffffff;
+  text-shadow: 1px 2px 1px #000000;
+}
+
+.rune-cost {
+  width: 42px;
+  height: 42px;
+  top: 21px;
+  left: 282px;
+  text-align: center;
+  padding-top: 10px;
+  display: block;
+  font: bold 20px arial, sans-serif;
+  color: #ffffff;
+  line-height: 20px;
+  text-shadow: 1px 2px 1px #000000;
+}
+
+.rune-front-stats {
+  bottom: 47px;
+  left: 10px;
+  width: 332px;
+  height: 50px;
+  background: transparent
+    url(https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/rune_stats.png) no-repeat
+    right top;
+}
+
+.rune-stats-dmg {
+  left: 50px;
+}
+
+.rune-stats-spd {
+  left: 101px;
+}
+
+.rune-stats-rng {
+  left: 152px;
+}
+
+.rune-stats-def {
+  left: 203px;
+}
+
+.rune-stats-hp {
+  left: 254px;
+}
+
+.rune-stats-dmg,
+.rune-stats-spd,
+.rune-stats-def,
+.rune-stats-hp,
+.rune-stats-rng {
+  width: 46px;
+  height: 50px;
+  text-align: center;
+  bottom: 0;
+}
+
+span.rune-stat {
+  font: normal 12px arial, sans-serif;
+  color: #ffffff;
+  line-height: 12px;
+  padding-top: 38px;
+  display: block;
+}
+
+.rune-artist {
+  width: 240px;
+  bottom: 18px;
+  left: 55px;
+  text-align: center;
+  font: 12px arial,sans-serif;
+  color: #ffffff;
+}
+
+.rune-artist-name {
+  color: #9fbe52;
+}
+
+.rune-back {
+  width: 332px;
+  height: 424px;
+  top: 0;
+  left: 322px;
+}
+
+.rune-back-faction {
+  width: 30px;
+  height: 22px;
+  top: 34px;
+  left: 40px;
+}
+
+.rune-back-name {
+  top: 36px;
+  left: 55px;
+  text-align: center;
+  font: bold 17px arial, sans-serif;
+  color: #ffffff;
+  text-shadow: 1px 2px 1px #000000;
+}
+
+.rune-back-flavor {
+  width: 262px;
+  height: 67px;
+  top: 62px;
+  left: 33px;
+  text-align: center;
+  font: 10px arial, sans-serif;
+  line-height: 11px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.rune-back-abilities {
+  height: 144px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  left: 40px;
+  top: 130px;
+  width: 270px;
+}
+
+.rune-back-ability,
+.rune-back-ability-1,
+.rune-back-ability-2 {
+  box-sizing: border-box;
+  align-items: center;
+  display: inline-flex;
+  height: 30px;
+  margin: 4px 0 0 6px;
+  max-width: 124px;
+  flex-grow: 0;
+}
+
+.rune-back-ability-1,
+.rune-back-ability-2 {
+  cursor: pointer;
+}
+
+.rune-back-ability-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.rune-back-ability-info {
+  font-size: 10px;
+  margin-left: 5px;
+  width: 89px;
+}
+
+.rune-back-attributes {
+  font-size: 12px;
+  width: 100px;
+  top: 295px;
+  left: 55px;
+  line-height: 12px;
+}
+
+.rune-back-attributes-value {
+  color: #9fbe52;
+}
+
+.rune-back-idol {
+  bottom: 31px;
+  right: 30px;
+  width: 160px;
+  height: 150px;
+}
+
+.rune-idol {
+  bottom: 0;
+  right: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+.rune-set {
+  bottom: 0;
+  right: 45px;
+  text-align: center;
+  font: 12px arial, sans-serif;
+  color: #ffffff;
+}
+
+.rune-front-frame,
+.rune-front-image,
+.rune-front-rarity,
+.rune-front-faction,
+.rune-faction-icon-1,
+.rune-faction-icon-2,
+.rune-front-name,
+.rune-cost,
+.rune-front-stats,
+.rune-stats-dmg,
+.rune-stats-spd,
+.rune-stats-rng,
+.rune-stats-def,
+.rune-stats-hp,
+.rune-artist,
+.rune-back,
+.rune-back-faction,
+.rune-back-name,
+.rune-back-flavor,
+.rune-back-abilities,
+.rune-back-attributes,
+.rune-set,
+.rune-idol,
+.rune-back-idol {
+  position: absolute;
+}
+
+.modal .modal-content {
+  padding: 0;
+}

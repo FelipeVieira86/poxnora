@@ -28,7 +28,6 @@ export default function ChampionList() {
       <div className="rune-count">{champs.length} Champions</div>
       <div className="rune-list">
         {typeof champs !== 'undefined'
-          // ? champs.slice(0,10).map((champion, key) => (<ChampionInfo key={key} attr={champion} />))
           ? champs.map((champion, key) => <Champion key={key} attr={champion} />)
           : 'Carregando...'}
       </div>
