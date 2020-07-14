@@ -132,7 +132,7 @@ span.rune-stat {
   bottom: 18px;
   left: 55px;
   text-align: center;
-  font: 12px arial,sans-serif;
+  font: 12px arial, sans-serif;
   color: #ffffff;
 }
 
@@ -234,10 +234,14 @@ span.rune-stat {
 }
 
 .rune-idol {
-  bottom: 0;
-  right: 15px;
   display: block;
   margin: 0 auto;
+}
+
+.rune-idol-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .rune-set {
@@ -270,7 +274,6 @@ span.rune-stat {
 .rune-back-abilities,
 .rune-back-attributes,
 .rune-set,
-.rune-idol,
 .rune-back-idol {
   position: absolute;
 }

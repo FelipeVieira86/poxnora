@@ -42,7 +42,7 @@ class ChampionInfo extends Component {
       'Forsaken Wastes': 1,
       'Sundered Lands': 2,
       'Ironfist Stronghold': 3,
-      'Underdepths': 4,
+      Underdepths: 4,
       "K'thir Forest": 5,
       'Forglar Swamp': 6,
       'Savage Tundra': 7,
@@ -129,9 +129,9 @@ class ChampionInfo extends Component {
                 </div>
                 <div className="rune-back-ability-info">{abilitySets[1].abilities[0].name}</div>
               </div>
-              {startingAbilities.map(ability => {
+              {startingAbilities.map((ability, key) => {
                 return (
-                  <div className="rune-back-ability">
+                  <div className="rune-back-ability" key={key}>
                     <img
                       className="rune-back-ability-icon"
                       src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ability.iconName}.gif`}
@@ -157,11 +157,13 @@ class ChampionInfo extends Component {
               </div>
             </div>
             <div className="rune-back-idol">
-              <img
-                className="rune-idol"
-                src={`https://d2aao99y1mip6n.cloudfront.net/images/runes/idols/${hash}.gif`}
-                alt=""
-              />
+              <div className="rune-idol-container">
+                <img
+                  className="rune-idol"
+                  src={`https://d2aao99y1mip6n.cloudfront.net/images/runes/idols/${hash}.gif`}
+                  alt=""
+                />
+              </div>
             </div>
             <div className="rune-set">
               Expansion: <span className="rune-back-attributes-value">{runeSet}</span>
