@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './style.css';
+import './runeInfo.css';
 
 const modal = attr => {};
 
@@ -9,6 +9,7 @@ class ChampionInfo extends Component {
     const assetEndpoint = 'https://d2aao99y1mip6n.cloudfront.net/_themes/global';
     const {
       hash,
+      factions,
       rarity,
       name,
       noraCost,
@@ -17,6 +18,15 @@ class ChampionInfo extends Component {
       maxRng,
       defense,
       hitPoints,
+      artist,
+      description,
+      startingAbilities,
+      abilitySets,
+      deckLimit,
+      races,
+      classes,
+      size,
+      runeSet,
     } = this.props.attr;
 
     const rarityMap = {
@@ -24,121 +34,142 @@ class ChampionInfo extends Component {
       UNCOMMON: 'uncom',
       RARE: 'rare',
       EXOTIC: 'exotic',
-      LEGENDARY: undefined, //mudar
-      LIMITED: undefined //mudar
+      LEGENDARY: 'pe',
+      LIMITED: 'le',
+    };
+
+    const faction = {
+      'Forsaken Wastes': 1,
+      'Sundered Lands': 2,
+      'Ironfist Stronghold': 3,
+      Underdepths: 4,
+      "K'thir Forest": 5,
+      'Forglar Swamp': 6,
+      'Savage Tundra': 7,
+      'Shattered Peaks': 8,
     };
 
     const attributes = {
-      cardBackground: `url('${assetEndpoint}/frames/large/front/1.gif'),
-                      url('${assetEndpoint}/frames/large/lg_frame_rarity_${rarityMap[rarity] || 'exotic'}.gif')`,
-      cardFaction: `url('${assetEndpoint}/frames/large/faction_1_1.png'),
-                    url('${assetEndpoint}/frames/large/faction_1_2.png')`,
+      cardfrontBackground: `${assetEndpoint}/frames/large/front/${
+        factions.length === 1
+          ? faction[factions[0]]
+          : `${faction[factions[0]]}_${faction[factions[1]]}`
+      }.gif`,
+      cardImage: `https://d2aao99y1mip6n.cloudfront.net/images/runes/lg/${hash}.jpg`,
+      cardRarity: `${assetEndpoint}/frames/large/lg_frame_rarity_${rarityMap[rarity]}.gif`,
+      cardbackBackground: `url('${assetEndpoint}/frames/large/back/${
+        factions.length === 1
+          ? faction[factions[0]]
+          : `${faction[factions[0]]}_${faction[factions[1]]}`
+      }.gif')`,
+      cardFaction: `${assetEndpoint}/frames/large/faction_${faction[factions[0]]}_1.png`,
+      cardFaction2: `${assetEndpoint}/frames/large/faction_${
+        factions.length === 1 ? faction[factions[0]] : faction[factions[1]]
+      }_2.png`,
     };
 
     return (
-      <div className="champion-info" style={{ backgroundImage: attributes.cardBackground }}>
-        <div className="rune-front">
-          <div className="rune-info">
-            <div className="rune-faction" style={{ backgroundImage: attributes.cardFaction }}></div>
-            <span className="rune-name">{name}</span>
-            <span className="rune-cost">{noraCost}</span>
-          </div>
-          <div className="rune-body">
-            <img
-              className="rune-image"
-              src={`https://d2aao99y1mip6n.cloudfront.net/images/runes/lg/${hash}.jpg`}
-              alt=""
-            />
-          </div>
-          <div className="rune-stats">
-            <div className="rune-data">{damage}</div>
-            <div className="rune-data">{speed}</div>
-            <div className="rune-data">{maxRng}</div>
-            <div className="rune-data">{defense}</div>
-            <div className="rune-data">{hitPoints}</div>
-          </div>
-        </div>
-        {/* <div className="rune-back">
-          <img
-            src={`https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/back/${this.props.faction1}.gif`}
-            alt=""
-          />
-          <div className="rune-back-faction">
-            <img
-              className="rune-faction-1"
-              src={`https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/faction_${this.props.faction1}_1.png`}
-              alt=""
-            />
-            <img
-              className="rune-faction-2"
-              src={`https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/faction_${this.props.faction2}_2.png`}
-              alt=""
-            />
-          </div>
-          <div className="rune-back-name">{this.props.type}</div>
-          <div className="rune-back-flavor">{this.props.flavor}</div>
-          <div className="rune-back-abilities">
-            <div className="rune-back-ability">
-              <img
-                className="rune-back-ability-icon"
-                src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${this.props.ability1[0][1]}.gif`}
-                alt=""
-              />
-              <div className="rune-back-ability-info">{this.props.ability1[0][0]}</div>
+      <div className="rune-container">
+        <div className="rune-preview">
+          <div className="rune-front">
+            <img className="rune-front-frame" src={attributes.cardfrontBackground} alt="" />
+            <img className="rune-front-image" src={attributes.cardImage} alt="" />
+            <img className="rune-front-rarity" src={attributes.cardRarity} alt="" />
+            <div className="rune-front-faction">
+              <img className="rune-faction-icon-1" src={attributes.cardFaction} alt="" />
+              <img className="rune-faction-icon-2" src={attributes.cardFaction2} alt="" />
             </div>
-            <div className="rune-back-ability">
-              <div>
+            <span className="rune-front-name">{name}</span>
+            <span className="rune-cost">{noraCost}</span>
+            <div className="rune-front-stats">
+              <div className="rune-stats-dmg">
+                <span className="rune-stat">{damage}</span>
+              </div>
+              <div className="rune-stats-spd">
+                <span className="rune-stat">{speed}</span>
+              </div>
+              <div className="rune-stats-rng">
+                <span className="rune-stat">{maxRng}</span>
+              </div>
+              <div className="rune-stats-def">
+                <span className="rune-stat">{defense}</span>
+              </div>
+              <div className="rune-stats-hp">
+                <span className="rune-stat">{hitPoints}</span>
+              </div>
+            </div>
+            <div className="rune-artist">
+              Illustrated By:
+              <span className="rune-artist-name">{` ${artist}`}</span>
+            </div>
+          </div>
+          <div className="rune-back" style={{ backgroundImage: attributes.cardbackBackground }}>
+            <div className="rune-back-faction">
+              <img className="rune-faction-icon-1" src={attributes.cardFaction} alt="" />
+              <img className="rune-faction-icon-2" src={attributes.cardFaction2} alt="" />
+            </div>
+            <div className="rune-back-name">Champion</div>
+            <div className="rune-back-flavor">{description}</div>
+            <div className="rune-back-abilities">
+              <div className="rune-back-ability-1">
                 <img
                   className="rune-back-ability-icon"
-                  src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${this.props.ability2[0][1]}.gif`}
+                  src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${abilitySets[0].abilities[0].iconName}.gif`}
+                  alt=""
+                />
+                <div className="rune-back-ability-info">{abilitySets[0].abilities[0].name}</div>
+              </div>
+              <div className="rune-back-ability-2">
+                <div>
+                  <img
+                    className="rune-back-ability-icon"
+                    src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${abilitySets[1].abilities[0].iconName}.gif`}
+                    alt=""
+                  />
+                </div>
+                <div className="rune-back-ability-info">{abilitySets[1].abilities[0].name}</div>
+              </div>
+              {startingAbilities.map((ability, key) => {
+                return (
+                  <div className="rune-back-ability" key={key}>
+                    <img
+                      className="rune-back-ability-icon"
+                      src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ability.iconName}.gif`}
+                      alt=""
+                    />
+                    <div className="rune-back-ability-info">{ability.name}</div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="rune-back-attributes">
+              <div>
+                Deck Limit: <span className="rune-back-attributes-value">{deckLimit}</span>
+              </div>
+              <div>
+                Races: <span className="rune-back-attributes-value">{races.join(', ')}</span>
+              </div>
+              <div>
+                Classes: <span className="rune-back-attributes-value">{classes.join(', ')}</span>
+              </div>
+              <div>
+                Size: <span className="rune-back-attributes-value">{size}</span>
+              </div>
+            </div>
+            <div className="rune-back-idol">
+              <div className="rune-idol-container">
+                <img
+                  className="rune-idol"
+                  src={`https://d2aao99y1mip6n.cloudfront.net/images/runes/idols/${hash}.gif`}
                   alt=""
                 />
               </div>
-              <div className="rune-back-ability-info">{this.props.ability2[0][0]}</div>
             </div>
-            {this.props.abilities.map(ability => {
-              return (
-                <div className="rune-back-ability">
-                  <img
-                    className="rune-back-ability-icon"
-                    src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ability[1]}.gif`}
-                    alt=""
-                  />
-                  <div className="rune-back-ability-info">{ability[0]}</div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="rune-back-attributes">
-            <div>
-              Deck Limit: <span className="rune-back-attributes-value">{this.props.limit}</span>
+            <div className="rune-set">
+              Expansion: <span className="rune-back-attributes-value">{runeSet}</span>
             </div>
-            <div>
-              Races:{' '}
-              <span className="rune-back-attributes-value">{this.props.races.join(', ')}</span>
-            </div>
-            <div>
-              Classes:{' '}
-              <span className="rune-back-attributes-value">{this.props.classes.join(', ')}</span>
-            </div>
-            <div>
-              Size:{' '}
-              <span className="rune-back-attributes-value">
-                {this.props.size}x{this.props.size}
-              </span>
-            </div>
-          </div>
-          <div className="rune-back-idol">
-            <img
-              className="rune-idol"
-              src={`https://d2aao99y1mip6n.cloudfront.net/images/runes/idols/${this.props.image}.gif`}
-              alt=""
-            />
           </div>
         </div>
-        <div className="rune-set">
-          Expansion: <span className="rune-back-attributes-value">{this.props.exp}</span>
-        </div> */}
       </div>
     );
   }

@@ -26,6 +26,7 @@ const getChamps = async () => {
 
 export default class ChampionList extends React.Component {
   //const {data: champs} = useAsync({promiseFn: getChamps});
+  
   constructor () {
     super();
     this.state = {
