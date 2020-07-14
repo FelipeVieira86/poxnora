@@ -52,7 +52,6 @@ body, input {
   margin: 3%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 .rune-name-container {
