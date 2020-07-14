@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RuneInfo from './SpellInfo';
+import SpellInfo from './SpellInfo';
 import { Modal } from 'react-materialize';
 
 class Spell extends Component {
@@ -18,7 +18,7 @@ class Spell extends Component {
             <button className="modal-close right">X</button>
           </div>
           <div className="modal-body">
-            <RuneInfo attr={this.props.attr} />
+            <SpellInfo attr={this.props.attr} />
           </div>
         </Modal>
       </div>
