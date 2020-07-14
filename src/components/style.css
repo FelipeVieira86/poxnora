@@ -40,98 +40,23 @@ body {
 .rune-name-container {
   width: 33%;
 }
+
+
 /* style para lista de nomes das runas */
-p.champion, p.spell, p.equip, p.relic {
+p.champion,
+p.spell,
+p.equip,
+p.relic {
   margin: 0;
   font-size: 14px;
   cursor: pointer;
   width: fit-content;
 }
 
-p.champion:hover, p.spell:hover, p.equip:hover, p.relic:hover {
+p.champion:hover,
+p.spell:hover,
+p.equip:hover,
+p.relic:hover {
   color: lightskyblue;
   text-decoration: underline;
-}
-
-.champion-info {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-  background: url('https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/front/1.gif');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 332px;
-  height: 418px;
-  margin: auto;
-}
-
-.champion-info .rune-front {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.champion-info .rune-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 25px;
-  width: 270px;
-}
-
-.champion-info .rune-info .rune-name,
-.rune-cost {
-  text-shadow: 1px 2px 1px #000000;
-  font-style: arial;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.champion-info .rune-faction {
-  background-image: '';
-  background-size: 28px 28px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 32px;
-  height: 32px;
-  margin-top: 4px;
-}
-
-.champion-info .rune-body {
-  width: 275px;
-  height: 280px;
-}
-
-.champion-info .rune-front .rune-image {
-  position: absolute;
-  width: 275px;
-  margin-top: -15px;
-  z-index: -1;
-}
-
-.champion-info .rune-stats {
-  background: url('https://d2aao99y1mip6n.cloudfront.net/_themes/global/frames/large/rune_stats.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 0 80px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 36px;
-}
-
-.champion-info .rune-stats .rune-data {
-  margin-top: 36px;
-  text-align: center;
-  padding: 0 21px;
-}
-
-.hidden {
-  display: none;
-}
-
-.rune-cost {
-  position: relative;
-  bottom: 5px;
 }

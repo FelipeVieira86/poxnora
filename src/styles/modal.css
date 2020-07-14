@@ -18,5 +18,9 @@
 }
 
 .modal-footer {
-  display: none;
+  display: none
+}
+
+.modal-content {
+  padding: 0 !important;
 }
