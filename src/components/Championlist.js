@@ -12,17 +12,17 @@ import { Button, TextInput } from 'react-materialize';
 
 import '../styles/style.css';
 
-const getChamps = async () => {
-  return new Promise(async (resolved, rejected) => {
-    await Axios.get('https://www.poxnora.com/api/feed.do?t=json')
-      .then(({ data }) => {
-        resolved(data.champs);
-      })
-      .catch(err => {
-        rejected(err);
-      });
-  });
-};
+// const getChamps = async () => {
+//   return new Promise(async (resolved, rejected) => {
+//     await Axios.get('https://www.poxnora.com/api/feed.do?t=json')
+//       .then(({ data }) => {
+//         resolved(data.champs);
+//       })
+//       .catch(err => {
+//         rejected(err);
+//       });
+//   });
+// };
 
 export default class ChampionList extends React.Component {
   //const {data: champs} = useAsync({promiseFn: getChamps});
