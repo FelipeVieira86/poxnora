@@ -58,6 +58,11 @@ body, input {
   width: 33%;
 }
 
+/* Por favor, manter */
+
+.hidden {
+  display: none;
+}
 
 /* style para lista de nomes das runas */
 p.champion,

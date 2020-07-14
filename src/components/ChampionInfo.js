@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import './runeInfo.css';
 
-const modal = attr => {};
-
-class ChampionInfo extends Component {
+export default class ChampionInfo extends Component {
   render() {
     const assetEndpoint = 'https://d2aao99y1mip6n.cloudfront.net/_themes/global';
     const {
@@ -42,7 +40,7 @@ class ChampionInfo extends Component {
       'Forsaken Wastes': 1,
       'Sundered Lands': 2,
       'Ironfist Stronghold': 3,
-      Underdepths: 4,
+      'Underdepths': 4,
       "K'thir Forest": 5,
       'Forglar Swamp': 6,
       'Savage Tundra': 7,
@@ -174,5 +172,3 @@ class ChampionInfo extends Component {
     );
   }
 }
-
-export default ChampionInfo;

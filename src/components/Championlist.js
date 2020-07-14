@@ -4,7 +4,7 @@ import Champion from './Champion';
 // import ChampionInfo from './ChampionInfo';
 // import { useAsync } from 'react-async';
 
-/* Usse esse import para os testes e comente a linha 24*/
+/* Use esse import para os testes e comente a linha 28*/
 import { champs } from '../data/champs.json';
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -40,8 +40,6 @@ export default class ChampionList extends React.Component {
 
     this.totalPages = Math.floor(champs.length / this.state.itemPerPage);
   }
-
-  
 
   changePage = (target) => {
     switch(target.getAttribute('label')){
@@ -94,7 +92,7 @@ export default class ChampionList extends React.Component {
       this.state.filter.query === 'all' ? champs :
       champs.filter(({ name }) => name.toLowerCase().includes(this.state.filter.query.toLowerCase()));
 
-    this.totalPages = Math.floor(champsFiltered.length / itemPerPage);
+    this.totalPages = Math.max(Math.floor(champsFiltered.length / itemPerPage), 1);
 
     return (
       <div className="rune-list-container">
