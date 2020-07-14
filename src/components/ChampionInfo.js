@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './runeInfo.css';
+import '../styles/runeInfo.css';
 
 export default class ChampionInfo extends Component {
   render() {

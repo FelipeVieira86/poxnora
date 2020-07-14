@@ -4,12 +4,10 @@ import SpellList from './components/SpellList';
 import EquipList from './components/EquipList';
 import RelicList from './components/RelicList';
 
-
-import M from "materialize-css";
+import M from 'materialize-css';
 import './styles/icons.css';
 
 class App extends Component {
-
   componentDidMount() {
     M.AutoInit();
   }
@@ -18,11 +16,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="column">
-        <ChampionList />
+          <ChampionList />
+          <RelicList />
         </div>
         <div className="column">
           <SpellList />
-          <RelicList />
           <EquipList />
         </div>
       </div>

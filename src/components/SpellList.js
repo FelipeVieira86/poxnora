@@ -2,6 +2,8 @@ import React from 'react';
 import { spells } from '../data/champs.json';
 import Spell from './Spell'
 
+import '../styles/style.css';
+
 export default function SpellList() {
   //const {data: champs} = useAsync({promiseFn: getChamps});
   return (

@@ -10,7 +10,7 @@ import { champs } from '../data/champs.json';
 import 'materialize-css/dist/css/materialize.min.css';
 import { Button, TextInput } from 'react-materialize';
 
-import './style.css';
+import '../styles/style.css';
 
 const getChamps = async () => {
   return new Promise(async (resolved, rejected) => {
@@ -114,7 +114,6 @@ export default class ChampionList extends React.Component {
         <div className="rune-list">
           {
             (champsFiltered.length > 0) ?
-              // champs.slice(0,10).map((champion, key) => (<ChampionInfo key={key} attr={champion} />))
               champsFiltered
               .slice((page - 1) * itemPerPage, page * itemPerPage)
               .map((champion, key) => <Champion key={key} attr={champion} />)

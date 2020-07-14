@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ChampionInfo from './ChampionInfo';
 
-import 'materialize-css/dist/css/materialize.min.css';
 import { Modal } from 'react-materialize';
 
+import 'materialize-css/dist/css/materialize.min.css';
 import '../styles/modal.css';
 
 export default class Champion extends Component {

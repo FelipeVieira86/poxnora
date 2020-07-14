@@ -2,7 +2,7 @@ import React from 'react';
 import Relic from './Relic';
 import { relics } from '../data/champs.json';
 
-import './style.css';
+import '../styles/style.css';
 
 
 export default function RelicList() {
