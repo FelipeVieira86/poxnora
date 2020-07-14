@@ -89,23 +89,23 @@
 }
 
 .rune-stats-dmg {
-  left: 50px;
+  left: 40px;
 }
 
 .rune-stats-spd {
-  left: 101px;
+  left: 91px;
 }
 
 .rune-stats-rng {
-  left: 152px;
+  left: 142px;
 }
 
 .rune-stats-def {
-  left: 203px;
+  left: 193px;
 }
 
 .rune-stats-hp {
-  left: 254px;
+  left: 244px;
 }
 
 .rune-stats-dmg,
@@ -252,6 +252,22 @@ span.rune-stat {
   color: #ffffff;
 }
 
+.rune-back-description {
+  text-align: center;
+  font: 10px arial,sans-serif;
+  line-height: 11px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.rune-back-description-container {
+  width: 255px;
+  height: 132px;
+  top: 135px;
+  left: 35px;
+}
+
+.rune-back-description-container,
 .rune-front-frame,
 .rune-front-image,
 .rune-front-rarity,
