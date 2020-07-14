@@ -252,6 +252,22 @@ span.rune-stat {
   color: #ffffff;
 }
 
+.rune-back-description {
+  text-align: center;
+  font: 10px arial,sans-serif;
+  line-height: 11px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.rune-back-description-container {
+  width: 255px;
+  height: 132px;
+  top: 135px;
+  left: 35px;
+}
+
+.rune-back-description-container,
 .rune-front-frame,
 .rune-front-image,
 .rune-front-rarity,

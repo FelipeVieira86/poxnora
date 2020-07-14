@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-// import ChampionInfo from './ChampionInfo';
+import RuneInfo from './SpellInfo';
+import { Modal } from 'react-materialize';
 
 class Spell extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.championInfo = this.championInfo.bind(this);
-  // }
-
-  // spellInfo() {
-  //   console.log('list')
-  // }
- 
   render() {
     const { name } = this.props.attr;
+    const trigger = <p className="spell">{name}</p>;
+
+    const modalOptions = {
+      preventScrolling: false,
+      bottomSheet: false,
+    };
     return (
       <div className="rune-name-container">
-        <p onClick={this.spellInfo} className="spell">{name}</p>
+        <Modal trigger={trigger} options={modalOptions}>
+          <div className="modal-header">
+            <button className="modal-close right">X</button>
+          </div>
+          <div className="modal-body">
+            <RuneInfo attr={this.props.attr} />
+          </div>
+        </Modal>
       </div>
     );
   }
