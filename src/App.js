@@ -6,6 +6,7 @@ import RelicList from './components/RelicList';
 
 
 import M from "materialize-css";
+import './styles/icons.css';
 
 class App extends Component {
 
