@@ -11,11 +11,10 @@ import { TextInput } from 'react-materialize';
 import './styles/icons.css';
 
 class App extends Component {
-
-  constructor () {
+  constructor() {
     super();
     this.state = {
-      searchTerm: 'all'
+      searchTerm: 'all',
     };
   }
 
@@ -23,23 +22,31 @@ class App extends Component {
     M.AutoInit();
   }
 
-  setSearchTerm = (target) => {
-    this.setState({searchTerm: target.value || 'all'});
-  }
+  setSearchTerm = target => {
+    this.setState({ searchTerm: target.value || 'all' });
+  };
 
   render() {
     return (
       <div className="App">
         <div>
-          <TextInput onChange={({target}) => {this.setSearchTerm(target)}} id="find" label="Termo" />
+          <TextInput
+            onChange={({ target }) => {
+              this.setSearchTerm(target);
+            }}
+            id="find"
+            label="Search"
+          />
         </div>
-        <div className="column">
-          <ChampionList search={ this.state.searchTerm } />
-          <RelicList search={ this.state.searchTerm }/>
-        </div>
-        <div className="column">
-          <SpellList search={ this.state.searchTerm }/>
-          <EquipList search={ this.state.searchTerm }/>
+        <div className="list-container">
+          <div className="column">
+            <ChampionList search={this.state.searchTerm} />
+            <RelicList search={this.state.searchTerm} />
+          </div>
+          <div className="column">
+            <SpellList search={this.state.searchTerm} />
+            <EquipList search={this.state.searchTerm} />
+          </div>
         </div>
       </div>
     );
