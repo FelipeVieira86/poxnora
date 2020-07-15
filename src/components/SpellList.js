@@ -1,20 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import List from './templates/ListTemplate';
+
 import { spells } from '../data/champs.json';
-import Spell from './Spell'
 
-import '../styles/style.css';
-
-export default function SpellList() {
-  //const {data: champs} = useAsync({promiseFn: getChamps});
-  return (
-    <div className="rune-list-container">
-      <div className="rune-count">{spells.length} Spells</div>
-      <div className="rune-list">
-        {typeof spells !== 'undefined'
-          // ? champs.slice(0,10).map((champion, key) => (<ChampionInfo key={key} attr={champion} />))
-          ? spells.map((spell, key) => <Spell key={key} attr={spell} />)
-          : 'Carregando...'}
-      </div>
-    </div>
-  );
+export default class ChampionList extends Component {
+  render = () => {
+    const { search } = this.props;
+    return (
+      <List search={search} items={spells} target='Spell'/>
+    )
+  }
 }
