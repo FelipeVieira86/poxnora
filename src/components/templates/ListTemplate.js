@@ -26,7 +26,7 @@ class List extends Component {
   }
 
   changePage = (target) => {
-    switch(target.getAttribute('label')){
+    switch(target.getAttribute('label')) {
       case 'prev':
         this.setState(state => ({
           page: state.page > 1 ? state.page-1 : this.totalPages
@@ -51,6 +51,8 @@ class List extends Component {
       items.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()));
 
     this.totalPages = Math.max(Math.floor(listFiltered.length / itemPerPage), 1);
+
+    if(page > this.totalPages) this.setState({page: 1});
 
     return (
       <div className="rune-list-container">
