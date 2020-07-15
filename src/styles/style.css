@@ -5,12 +5,12 @@ body, input {
 
 .App {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .column {
-  min-width: 45%;
-  max-width: 45%;
+  width: 45%;
+  height: 30%;
 }
 
 .rune-count, .rune-navigation {
@@ -84,6 +84,11 @@ p.relic:hover {
   text-decoration: underline;
 }
 
+.list-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
 .rune-preview {
   position: relative;
   left: 14px;

@@ -77,7 +77,7 @@ class List extends Component {
                     return (<Spell key={key} attr={item} />);
                 }
               })
-              : 'Carregando...'
+              : 'No runes matching these filters found.'
             }
         </div>
 
