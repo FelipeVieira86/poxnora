@@ -83,3 +83,8 @@ p.relic:hover {
   color: lightskyblue;
   text-decoration: underline;
 }
+
+.rune-preview {
+  position: relative;
+  left: 14px;
+}

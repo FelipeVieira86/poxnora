@@ -79,7 +79,7 @@
 }
 
 .rune-front-stats {
-  bottom: 47px;
+  bottom: 34px;
   left: 10px;
   width: 332px;
   height: 50px;
@@ -129,7 +129,7 @@ span.rune-stat {
 
 .rune-artist {
   width: 240px;
-  bottom: 18px;
+  bottom: 5px;
   left: 55px;
   text-align: center;
   font: 12px arial, sans-serif;
