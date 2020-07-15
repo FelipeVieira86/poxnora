@@ -88,4 +88,8 @@ p.relic:hover {
   display: flex;
   justify-content: center;
   width: 100%;
+  
+.rune-preview {
+  position: relative;
+  left: 14px;
 }

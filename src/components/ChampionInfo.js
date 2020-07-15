@@ -13,6 +13,7 @@ export default class ChampionInfo extends Component {
       noraCost,
       damage,
       speed,
+      minRng,
       maxRng,
       defense,
       hitPoints,
@@ -40,7 +41,7 @@ export default class ChampionInfo extends Component {
       'Forsaken Wastes': 1,
       'Sundered Lands': 2,
       'Ironfist Stronghold': 3,
-      'Underdepths': 4,
+      Underdepths: 4,
       "K'thir Forest": 5,
       'Forglar Swamp': 6,
       'Savage Tundra': 7,
@@ -87,7 +88,9 @@ export default class ChampionInfo extends Component {
                 <span className="rune-stat">{speed}</span>
               </div>
               <div className="rune-stats-rng">
-                <span className="rune-stat">{maxRng}</span>
+                <span className="rune-stat">
+                  {minRng === maxRng ? `${ minRng }` : `${ minRng }-${ maxRng }`}
+                </span>
               </div>
               <div className="rune-stats-def">
                 <span className="rune-stat">{defense}</span>
