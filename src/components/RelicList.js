@@ -1,19 +1,13 @@
-import React from 'react';
-import Relic from './Relic';
+import React, { Component } from 'react';
+import List from './templates/ListTemplate';
+
 import { relics } from '../data/champs.json';
 
-import '../styles/style.css';
-
-
-export default function RelicList() {
-  return (
-    <div className="rune-list-container">
-      <div className="rune-count">{relics.length} Relics</div>
-      <div className="rune-list">
-        {typeof relics !== 'undefined'
-          ? relics.map((relic, key) => <Relic key={key} attr={relic} />)
-          : 'Carregando...'}
-      </div>
-    </div>
-  );
+export default class ChampionList extends Component {
+  render = () => {
+    const { search } = this.props;
+    return (
+      <List search={search} items={relics} target='Relic'/>
+    )
+  }
 }
