@@ -10,6 +10,8 @@
   color: rgb(125, 125, 125);
   background-color: rgb(51, 51, 51);
   margin-top: -15px;
+  position: relative;
+  z-index: 1;
 }
 
 .modal .modal-body {
