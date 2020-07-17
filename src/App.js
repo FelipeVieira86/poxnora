@@ -56,10 +56,10 @@ class App extends Component {
           </div>
         </div>
 
-        <footer>
+        <footer className="footer">
         Made by {
                devs.map((dev, i) => (
-                <a key={i} href={dev[1]} target='_blank'>{dev[0]}</a>
+                <a key={i} href={dev[1]} target='_blank'> {dev[0]}</a>
               ))
             }
         </footer>

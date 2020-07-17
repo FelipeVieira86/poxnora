@@ -50,15 +50,10 @@ class List extends Component {
       : search === 'all'
       ? items
       : target !== 'Champion'
-      ? items.filter(({ name }) => {
-          return name.toLowerCase().includes(search.toLowerCase());
-        })
+      ? items.filter(({ name, description }) => {
+          return name.toLowerCase().includes(search.toLowerCase())
+         || description.toLowerCase().includes(search.toLowerCase())})
       : items.filter(({ name, abilitySets, startingAbilities }) => {
-          console.log(
-            startingAbilities.filter((ability) =>
-              ability.name.toLowerCase().includes(search.toLowerCase()),
-            ),
-          );
           return (
             name.toLowerCase().includes(search.toLowerCase()) ||
             abilitySets.filter((abilityset) =>
