@@ -121,7 +121,6 @@ export default class ChampionInfo extends Component {
             <div className="rune-back-flavor">{description}</div>
             <div className="rune-back-abilities">
               <AbilityDetails handler={this.noraUpdate} noraCost={this.state.noraCost} AbilitySets={abilitySets} n={1} />
-              <AbilityDetails handler={this.noraUpdate} noraCost={this.state.noraCost} AbilitySets={abilitySets} n={2} />
               {startingAbilities.map((ability, key) => {
                 return (
                   <div className="rune-back-ability" key={key}>
