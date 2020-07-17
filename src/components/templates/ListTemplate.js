@@ -15,8 +15,7 @@ import '../../styles/style.css';
 */
 
 class List extends Component {
-  
-  constructor () {
+  constructor() {
     super();
     this.state = {
       page: 1,
@@ -26,15 +25,15 @@ class List extends Component {
   }
 
   changePage = (target) => {
-    switch(target.getAttribute('label')) {
+    switch (target.getAttribute('label')) {
       case 'prev':
-        this.setState(state => ({
-          page: state.page > 1 ? state.page-1 : this.totalPages
+        this.setState((state) => ({
+          page: state.page > 1 ? state.page - 1 : this.totalPages,
         }));
         break;
       case 'next':
-        this.setState(state => ({
-          page: state.page < this.totalPages ? state.page+1 : 1
+        this.setState((state) => ({
+          page: state.page < this.totalPages ? state.page + 1 : 1,
         }));
         break;
       default:
@@ -43,16 +42,39 @@ class List extends Component {
   };
 
   render() {
-    const {page, itemPerPage} = this.state;
-    const {search, items, target} = this.props; 
+    const { page, itemPerPage } = this.state;
+    const { search, items, target } = this.props;
 
-    const listFiltered = !Array.isArray(items) ? [] :
-      search === 'all' ? items :
-      items.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()));
+    const listFiltered = !Array.isArray(items)
+      ? []
+      : search === 'all'
+      ? items
+      : target !== 'Champion'
+      ? items.filter(({ name }) => {
+          return name.toLowerCase().includes(search.toLowerCase());
+        })
+      : items.filter(({ name, abilitySets, startingAbilities }) => {
+          console.log(
+            startingAbilities.filter((ability) =>
+              ability.name.toLowerCase().includes(search.toLowerCase()),
+            ),
+          );
+          return (
+            name.toLowerCase().includes(search.toLowerCase()) ||
+            abilitySets.filter((abilityset) =>
+              abilityset.abilities.find((ability) =>
+                ability.name.toLowerCase().includes(search.toLowerCase()),
+              ),
+            ).length > 0 ||
+            startingAbilities.filter((ability) =>
+              ability.name.toLowerCase().includes(search.toLowerCase()),
+            ).length > 0
+          );
+        });
 
     this.totalPages = Math.max(Math.floor(listFiltered.length / itemPerPage), 1);
 
-    if(page > this.totalPages) this.setState({page: 1});
+    if (page > this.totalPages) this.setState({ page: 1 });
 
     return (
       <div className="rune-list-container">
@@ -63,32 +85,43 @@ class List extends Component {
         </div>
 
         <div className="rune-list">
-          {
-            (listFiltered.length > 0) ?
-              listFiltered
-              .slice((page - 1) * itemPerPage, page * itemPerPage)
-              .map((item, key) => {
-                switch(target){
+          {listFiltered.length > 0
+            ? listFiltered.slice((page - 1) * itemPerPage, page * itemPerPage).map((item, key) => {
+                switch (target) {
                   case 'Champion':
-                    return (<Champion key={key} attr={item} />);
+                    return <Champion key={key} attr={item} />;
                   case 'Equip':
-                    return (<Equip key={key} attr={item} />);
+                    return <Equip key={key} attr={item} />;
                   case 'Relic':
-                    return (<Relic key={key} attr={item} />);
+                    return <Relic key={key} attr={item} />;
                   default:
-                    return (<Spell key={key} attr={item} />);
+                    return <Spell key={key} attr={item} />;
                 }
               })
-              : 'No runes matching these filters found.'
-            }
+            : 'No runes matching these filters found.'}
         </div>
 
         <div className="rune-navigation">
-          <Button onClick={({target}) => {this.changePage(target)}} label="prev">Prev</Button>
-          <div>{page} / {this.totalPages}</div>
-          <Button onClick={({target}) => {this.changePage(target)}} label="next">Next</Button>
+          <Button
+            onClick={({ target }) => {
+              this.changePage(target);
+            }}
+            label="prev"
+          >
+            Prev
+          </Button>
+          <div>
+            {page} / {this.totalPages}
+          </div>
+          <Button
+            onClick={({ target }) => {
+              this.changePage(target);
+            }}
+            label="next"
+          >
+            Next
+          </Button>
         </div>
-
       </div>
     );
   }
