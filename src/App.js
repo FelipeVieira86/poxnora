@@ -27,9 +27,9 @@ class App extends Component {
     M.AutoInit();
   }
 
-  setSearchTerm = (event) => {
-    if(event.key === 'Enter') {
-    this.setState({ searchTerm: event.target.value || 'all' });
+  setSearchTerm = ({key, target}) => {
+    if(key === 'Enter') {
+    this.setState({ searchTerm: target.value || 'all' });
   }
   };
 
