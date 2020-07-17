@@ -27,8 +27,10 @@ class App extends Component {
     M.AutoInit();
   }
 
-  setSearchTerm = target => {
+  setSearchTerm = ({key, target}) => {
+    if(key === 'Enter') {
     this.setState({ searchTerm: target.value || 'all' });
+  }
   };
 
   render() {
@@ -36,9 +38,9 @@ class App extends Component {
       <div className="App">
         <div>
           <TextInput
-            onChange={({ target }) => {
-              this.setSearchTerm(target);
-            }}
+            onKeyPress={
+              this.setSearchTerm
+            }
             id="find"
             label="Search"
           />
