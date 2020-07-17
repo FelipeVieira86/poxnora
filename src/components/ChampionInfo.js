@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 
 import '../styles/runeInfo.css';
+import AbilityDetails from './AbilityDetail';
 
 export default class ChampionInfo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { noraCost: this.props.attr.noraCost };
+  }
+
+  noraUpdate = (cost) => this.setState({noraCost : cost})
+
   render() {
     const assetEndpoint = 'https://d2aao99y1mip6n.cloudfront.net/_themes/global';
     const {
@@ -10,7 +18,7 @@ export default class ChampionInfo extends Component {
       factions,
       rarity,
       name,
-      noraCost,
+      // noraCost,
       damage,
       speed,
       minRng,
@@ -79,7 +87,7 @@ export default class ChampionInfo extends Component {
               <img className="rune-faction-icon-2" src={attributes.cardFaction2} alt="" />
             </div>
             <span className="rune-front-name">{name}</span>
-            <span className="rune-cost">{noraCost}</span>
+            <span className="rune-cost">{this.state.noraCost}</span>
             <div className="rune-front-stats">
               <div className="rune-stats-dmg">
                 <span className="rune-stat">{damage}</span>
@@ -89,7 +97,7 @@ export default class ChampionInfo extends Component {
               </div>
               <div className="rune-stats-rng">
                 <span className="rune-stat">
-                  {minRng === maxRng ? `${ minRng }` : `${ minRng }-${ maxRng }`}
+                  {minRng === maxRng ? `${minRng}` : `${minRng}-${maxRng}`}
                 </span>
               </div>
               <div className="rune-stats-def">
@@ -112,24 +120,8 @@ export default class ChampionInfo extends Component {
             <div className="rune-back-name">Champion</div>
             <div className="rune-back-flavor">{description}</div>
             <div className="rune-back-abilities">
-              <div className="rune-back-ability-1">
-                <img
-                  className="rune-back-ability-icon"
-                  src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${abilitySets[0].abilities[0].iconName}.gif`}
-                  alt=""
-                />
-                <div className="rune-back-ability-info">{abilitySets[0].abilities[0].name}</div>
-              </div>
-              <div className="rune-back-ability-2">
-                <div>
-                  <img
-                    className="rune-back-ability-icon"
-                    src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${abilitySets[1].abilities[0].iconName}.gif`}
-                    alt=""
-                  />
-                </div>
-                <div className="rune-back-ability-info">{abilitySets[1].abilities[0].name}</div>
-              </div>
+              <AbilityDetails handler={this.noraUpdate} noraCost={this.state.noraCost} AbilitySets={abilitySets} n={1} />
+              <AbilityDetails handler={this.noraUpdate} noraCost={this.state.noraCost} AbilitySets={abilitySets} n={2} />
               {startingAbilities.map((ability, key) => {
                 return (
                   <div className="rune-back-ability" key={key}>

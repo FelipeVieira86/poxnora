@@ -297,3 +297,47 @@ span.rune-stat {
 .modal .modal-content {
   padding: 0;
 }
+
+
+.ability-detail {
+  box-sizing: border-box;
+  align-items: center;
+  display: inline-flex;
+  height: 30px;
+  margin: 4px 0 0 6px;
+  width: 190px;
+  flex-grow: 0;
+}
+
+
+.bg-black {
+  background-color: rgba(25,25,25,0.92);
+  top: 38px;
+  left: -100px;
+  display: block;
+  z-index: 95001;
+  position: absolute;
+  min-width: 200px;
+  font-size: 11px;
+  color: white;
+  padding: 2px 0;
+  border: 1px solid rgba(255,255,255,0.25);
+  margin: 0;
+  text-shadow: 0 0 2px #000;
+  border-radius: 3px;
+}
+
+.ability-select {
+  display: block;
+  font: 13px arial,sans-serif;
+  color: #ffffff;
+  margin: 5px 0 0 10px;
+}
+
+.rune-ability-name {
+  width: 100%;
+}
+
+.ablty-detail {
+  width: 190px;
+}

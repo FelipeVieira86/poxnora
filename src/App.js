@@ -10,6 +10,11 @@ import { TextInput } from 'react-materialize';
 
 import './styles/icons.css';
 
+const devs = [
+  ['Felipe Vieira', 'https://github.com/FelipeVieira86/'],
+  ['Lizzard Medeiros', 'https://github.com/LizzardMedeiros/']
+];
+
 class App extends Component {
   constructor() {
     super();
@@ -48,6 +53,15 @@ class App extends Component {
             <EquipList search={this.state.searchTerm} />
           </div>
         </div>
+
+        <footer>
+        Made by {
+               devs.map((dev, i) => (
+                <a key={i} href={dev[1]} target='_blank'>{dev[0]}</a>
+              ))
+            }
+        </footer>
+
       </div>
     );
   }
