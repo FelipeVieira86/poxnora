@@ -3,7 +3,7 @@ import ChampionList from './components/Championlist';
 import SpellList from './components/SpellList';
 import EquipList from './components/EquipList';
 import RelicList from './components/RelicList';
-
+import './styles/style.css';
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import { TextInput } from 'react-materialize';
@@ -12,7 +12,7 @@ import './styles/icons.css';
 
 const devs = [
   ['Felipe Vieira', 'https://github.com/FelipeVieira86/'],
-  ['Lizzard Medeiros', 'https://github.com/LizzardMedeiros/']
+  ['Lizzard Medeiros', 'https://github.com/LizzardMedeiros/'],
 ];
 
 class App extends Component {
@@ -27,23 +27,17 @@ class App extends Component {
     M.AutoInit();
   }
 
-  setSearchTerm = ({key, target}) => {
-    if(key === 'Enter') {
-    this.setState({ searchTerm: target.value || 'all' });
-  }
+  setSearchTerm = ({ key, target }) => {
+    if (key === 'Enter') {
+      this.setState({ searchTerm: target.value || 'all' });
+    }
   };
 
   render() {
     return (
       <div className="App">
         <div>
-          <TextInput
-            onKeyPress={
-              this.setSearchTerm
-            }
-            id="find"
-            label="Search"
-          />
+          <TextInput onKeyPress={this.setSearchTerm} id="find" label="Search" />
         </div>
         <div className="list-container">
           <div className="column">
@@ -57,13 +51,19 @@ class App extends Component {
         </div>
 
         <footer className="footer">
-        Made by {
-               devs.map((dev, i) => (
-                <a key={i} href={dev[1]} target='_blank'> {dev[0]}</a>
-              ))
-            }
+          Made by:{' '}
+          {
+            <a href={devs[0][1]} target="_blank">
+              {' '}
+              {devs[0][0]}
+            </a>
+          } {` and `} {
+            <a href={devs[1][1]} target="_blank">
+              {' '}
+              {devs[1][0]}
+            </a>
+          } 
         </footer>
-
       </div>
     );
   }

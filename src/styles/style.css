@@ -11,6 +11,7 @@ body, input {
 .column {
   width: 45%;
   height: 30%;
+  margin: 3px;
 }
 
 .rune-count, .rune-navigation {
@@ -43,7 +44,7 @@ body, input {
   border-radius: 10px;
   box-sizing: border-box;
   height: fit-content;
-  margin: 0;
+  margin-bottom: 6px;
   padding-bottom: 1%;
   width: 100%;
 }
@@ -93,4 +94,15 @@ p.relic:hover {
 .rune-preview {
   position: relative;
   left: 14px;
+}
+
+.footer {
+  margin: 5px auto 20px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 310px;
+}
+
+a {
+  color: #9fbe52;
 }
