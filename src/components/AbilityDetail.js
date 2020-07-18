@@ -39,18 +39,20 @@ class AbilityDetails extends Component {
   };
 
   render() {
+    const ablty1 = this.props.AbilitySets[0].abilities.find((ablty) => ablty.default === true)
+    const ablty2 = this.props.AbilitySets[1].abilities.find((ablty) => ablty.default === true)
     const { AbilitySets } = this.props;
     return (
       <div className="ability-upgrade-container">
         <div onClick={() => this.openAbility1()} className={`rune-back-ability-1`}>
           <img
             className="rune-back-ability-icon"
-            src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${this.state.ability1.iconName}.gif`}
+            src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ablty1.iconName}.gif`}
             alt=""
           />
           <div className="rune-back-ability-info">
-            {this.state.ability1.name}
-            {this.state.ability1.level === 0 ? '' : `(${this.state.ability1.level})`}
+            {ablty1.name}
+            {ablty1.level === 0 ? '' : `(${ablty1.level})`}
           </div>
           <div className={`rune-back-ability-info bg-black ${this.state.class1}`}>
             <span className="ability-select">Select Ability</span>
@@ -60,7 +62,7 @@ class AbilityDetails extends Component {
                 .map((ablty) => (
                   <div
                     key={ablty.id}
-                    onClick={() => this.selectAbility1(ablty.noraCost, ablty)}
+                    // onClick={() => this.selectAbility1(ablty.noraCost, ablty)}
                     className={`ability-detail`}
                   >
                     <img
@@ -85,12 +87,12 @@ class AbilityDetails extends Component {
         <div onClick={() => this.openAbility2()} className={`rune-back-ability-2`}>
           <img
             className="rune-back-ability-icon"
-            src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${this.state.ability2.iconName}.gif`}
+            src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ablty2.iconName}.gif`}
             alt=""
           />
           <div className="rune-back-ability-info">
-            {this.state.ability2.name}
-            {this.state.ability2.level === 0 ? '' : `(${this.state.ability2.level})`}
+            {ablty2.name}
+            {ablty2.level === 0 ? '' : `(${ablty2.level})`}
           </div>
           <div className={`rune-back-ability-info bg-black ${this.state.class2}`}>
             <span className="ability-select">Select Ability</span>
@@ -100,7 +102,7 @@ class AbilityDetails extends Component {
                 .map((ablty) => (
                   <div
                     key={ablty.id}
-                    onClick={() => this.selectAbility2(ablty.noraCost, ablty)}
+                    // onClick={() => this.selectAbility2(ablty.noraCost, ablty)}
                     className={`ability-detail`}
                   >
                     <img
