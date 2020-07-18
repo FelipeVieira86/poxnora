@@ -5,9 +5,9 @@ import { champs } from '../data/champs.json';
 
 export default class ChampionList extends Component {
   render = () => {
-    const { search } = this.props;
+    const { search, faction } = this.props;
     return (
-      <List search={search} items={champs} target='Champion'/>
+      <List faction={faction} search={search} data={champs} target='Champion'/>
     )
   }
 }

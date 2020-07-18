@@ -20,6 +20,7 @@ class App extends Component {
     super();
     this.state = {
       searchTerm: 'all',
+      faction: 'all',
     };
   }
 
@@ -36,17 +37,46 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className="search-container">
           <TextInput onKeyPress={this.setSearchTerm} id="find" label="Search" />
+          <select onChange={(event) => this.setState({faction: event.target.value})} className="select">
+            <option value="all">
+              All
+            </option>
+            <option value="Forsaken Wastes">
+              Forsaken Wastes
+            </option>
+            <option value="Sundered Lands">
+              Sundered Lands
+            </option>
+            <option value="Ironfist Stronghold">
+              Ironfist Stronghold
+            </option>
+            <option value="Underdepths">
+              Underdepths
+            </option>
+            <option value="K'thir Forest">
+              K'thir Forest
+            </option>
+            <option value="Forglar Swamp">
+              Forglar Swamp
+            </option>
+            <option value="Savage Tundra">
+              Savage Tundra
+            </option>
+            <option value="Shattered Peaks">
+              Shattered Peaks
+            </option>
+          </select>
         </div>
         <div className="list-container">
           <div className="column">
-            <ChampionList search={this.state.searchTerm} />
-            <RelicList search={this.state.searchTerm} />
+            <ChampionList faction={this.state.faction} search={this.state.searchTerm} />
+            <RelicList faction={this.state.faction} search={this.state.searchTerm} />
           </div>
           <div className="column">
-            <SpellList search={this.state.searchTerm} />
-            <EquipList search={this.state.searchTerm} />
+            <SpellList faction={this.state.faction} search={this.state.searchTerm} />
+            <EquipList faction={this.state.faction} search={this.state.searchTerm} />
           </div>
         </div>
 
@@ -57,12 +87,14 @@ class App extends Component {
               {' '}
               {devs[0][0]}
             </a>
-          } {` and `} {
+          }{' '}
+          {` and `}{' '}
+          {
             <a href={devs[1][1]} target="_blank">
               {' '}
               {devs[1][0]}
             </a>
-          } 
+          }
         </footer>
       </div>
     );

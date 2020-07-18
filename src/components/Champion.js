@@ -13,7 +13,7 @@ export default class Champion extends Component {
     const trigger = <p className="champion">{name}</p>;
 
     const modalOptions = {
-      preventScrolling: false,
+      preventScrolling: true,
       bottomSheet: false
     };
 

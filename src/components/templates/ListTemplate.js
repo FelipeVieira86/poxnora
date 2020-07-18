@@ -19,7 +19,7 @@ class List extends Component {
     super();
     this.state = {
       page: 1,
-      itemPerPage: 50,
+      itemPerPage: 21,
     };
     this.totalPages = 1;
   }
@@ -43,7 +43,10 @@ class List extends Component {
 
   render() {
     const { page, itemPerPage } = this.state;
-    const { search, items, target } = this.props;
+    const { search, data, target, faction } = this.props;
+
+    const items = !Array.isArray(data)
+    ? [] : faction === 'all' ? data : data.filter(({ factions }) => factions.includes(faction))
 
     const listFiltered = !Array.isArray(items)
       ? []
@@ -51,8 +54,11 @@ class List extends Component {
       ? items
       : target !== 'Champion'
       ? items.filter(({ name, description }) => {
-          return name.toLowerCase().includes(search.toLowerCase())
-         || description.toLowerCase().includes(search.toLowerCase())})
+          return (
+            name.toLowerCase().includes(search.toLowerCase()) ||
+            description.toLowerCase().includes(search.toLowerCase())
+          );
+        })
       : items.filter(({ name, abilitySets, startingAbilities }) => {
           return (
             name.toLowerCase().includes(search.toLowerCase()) ||
@@ -67,7 +73,7 @@ class List extends Component {
           );
         });
 
-    this.totalPages = Math.max(Math.floor(listFiltered.length / itemPerPage), 1);
+    this.totalPages = Math.max(Math.floor(listFiltered.length / itemPerPage) + 1, 1);
 
     if (page > this.totalPages) this.setState({ page: 1 });
 
@@ -78,8 +84,8 @@ class List extends Component {
             {listFiltered.length} {target}
           </div>
         </div>
-
         <div className="rune-list">
+        <div className="rune-list-area">
           {listFiltered.length > 0
             ? listFiltered.slice((page - 1) * itemPerPage, page * itemPerPage).map((item, key) => {
                 switch (target) {
@@ -93,7 +99,8 @@ class List extends Component {
                     return <Spell key={key} attr={item} />;
                 }
               })
-            : 'No runes matching these filters found.'}
+            : 'No data found.'}
+          </div>
         </div>
 
         <div className="rune-navigation">
@@ -105,9 +112,9 @@ class List extends Component {
           >
             Prev
           </Button>
-          <div>
+          {/* <div>
             {page} / {this.totalPages}
-          </div>
+          </div> */}
           <Button
             onClick={({ target }) => {
               this.changePage(target);

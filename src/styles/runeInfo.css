@@ -348,3 +348,20 @@ span.rune-stat {
   display: flex;
   flex-direction: column;
 }
+
+.ability-hover-info {
+  background-color: rgba(25,25,25,0.92);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: -260px;
+  top: 40px;
+  width: 275px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 10px;
+}
+
+.hidden-0, .hidden-1, .hidden-2 {
+  display: none;
+}

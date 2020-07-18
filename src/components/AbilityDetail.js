@@ -4,6 +4,7 @@ class AbilityDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hover: 'hidden',
       class1: 'hidden',
       class2: 'hidden',
       cost: this.props.noraCost,
@@ -39,8 +40,8 @@ class AbilityDetails extends Component {
   };
 
   render() {
-    const ablty1 = this.props.AbilitySets[0].abilities.find((ablty) => ablty.default === true)
-    const ablty2 = this.props.AbilitySets[1].abilities.find((ablty) => ablty.default === true)
+    const ablty1 = this.props.AbilitySets[0].abilities.find((ablty) => ablty.default === true);
+    const ablty2 = this.props.AbilitySets[1].abilities.find((ablty) => ablty.default === true);
     const { AbilitySets } = this.props;
     return (
       <div className="ability-upgrade-container">
@@ -99,7 +100,7 @@ class AbilityDetails extends Component {
             <div>
               {AbilitySets[1].abilities
                 .sort((a, b) => a.level - b.level)
-                .map((ablty) => (
+                .map((ablty, key) => (
                   <div
                     key={ablty.id}
                     // onClick={() => this.selectAbility2(ablty.noraCost, ablty)}
@@ -111,7 +112,11 @@ class AbilityDetails extends Component {
                       alt=""
                     />
 
-                    <div className="rune-back-ability-info ablty-detail">
+                    <div
+                      // onMouseEnter={() => this.setState({ hover: '' })}
+                      // onMouseLeave={() => this.setState({ hover: 'hidden' })}
+                      className="rune-back-ability-info ablty-detail"
+                    >
                       <div className="rune-ability-name">
                         <div>
                           {ablty.name} {ablty.level === 0 ? '' : `(${ablty.level})`}
@@ -119,6 +124,10 @@ class AbilityDetails extends Component {
                         <div>{`Add ${ablty.noraCost - this.state.ability2.noraCost} Nora`}</div>
                       </div>
                     </div>
+                    {/* <div className={`ability-hover-info ${`${this.state.hover}-${key}`}`}>
+                      <span>{ablty.name}</span>
+                      <span>{ablty.shortDescription}</span>
+                    </div> */}
                   </div>
                 ))}
             </div>
