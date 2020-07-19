@@ -1,6 +1,7 @@
-body, input {
-  background-color: #11151C;
-  color: #D9D9D9;
+body,
+input {
+  background-color: #11151c;
+  color: #d9d9d9;
 }
 
 .App {
@@ -14,7 +15,8 @@ body, input {
   margin: 3px;
 }
 
-.rune-count, .rune-navigation {
+.rune-count,
+.rune-navigation {
   display: flex;
   box-sizing: border-box;
   padding: 5px;
@@ -26,8 +28,8 @@ body, input {
 .rune-count {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  color: #D9D9D9;
-  background-color: #212D40;
+  color: #d9d9d9;
+  background-color: #212d40;
   border-bottom: 1px solid white;
   margin-bottom: 3px;
   justify-content: space-between;
@@ -38,8 +40,8 @@ body, input {
 }
 
 .rune-navigation {
-  background-color: #212D40;
-  color: #D9D9D9;
+  background-color: #212d40;
+  color: #d9d9d9;
   justify-content: space-around;
   border-top: 1px solid white;
   margin-top: 3px;
@@ -48,8 +50,8 @@ body, input {
 }
 
 .rune-list-container {
-  background-color: #D9D9D9;
-  color: #11151C;
+  background-color: #d9d9d9;
+  color: #11151c;
   font-weight: 700;
   border: white 1px solid;
   border-radius: 10px;
@@ -103,7 +105,7 @@ p.relic:hover {
   text-decoration: underline;
 }
 
-.list-container{
+.list-container {
   display: flex;
   justify-content: center;
   width: 100%;

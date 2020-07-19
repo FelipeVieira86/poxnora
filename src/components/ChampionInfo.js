@@ -6,10 +6,19 @@ import AbilityDetails from './AbilityDetail';
 export default class ChampionInfo extends Component {
   constructor(props) {
     super(props);
-    this.state = { noraCost: this.props.attr.noraCost };
+    this.state = {
+      noraCost: this.props.attr.noraCost,
+      0: 'none',
+      1: 'none',
+      2: 'none',
+      3: 'none',
+      4: 'none',
+      5: 'none',
+    };
+    this.abilityComponent = React.createRef();
   }
 
-  noraUpdate = (cost) => this.setState({noraCost : cost})
+  noraUpdate = (cost) => this.setState({ noraCost: cost });
 
   render() {
     const assetEndpoint = 'https://d2aao99y1mip6n.cloudfront.net/_themes/global';
@@ -18,7 +27,6 @@ export default class ChampionInfo extends Component {
       factions,
       rarity,
       name,
-      // noraCost,
       damage,
       speed,
       minRng,
@@ -120,16 +128,32 @@ export default class ChampionInfo extends Component {
             <div className="rune-back-name">Champion</div>
             <div className="rune-back-flavor">{description}</div>
             <div className="rune-back-abilities">
-              <AbilityDetails handler={this.noraUpdate} noraCost={this.state.noraCost} AbilitySets={abilitySets} />
+              <AbilityDetails
+                handler={this.noraUpdate}
+                noraCost={this.state.noraCost}
+                AbilitySets={abilitySets}
+              />
               {startingAbilities.map((ability, key) => {
                 return (
-                  <div className="rune-back-ability" key={key}>
+                  <div
+                    onMouseEnter={() => this.setState({ [key]: '' })}
+                    onMouseLeave={() => this.setState({ [key]: 'none' })}
+                    className="rune-back-ability"
+                    key={key}
+                  >
                     <img
                       className="rune-back-ability-icon"
                       src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ability.iconName}.gif`}
                       alt=""
                     />
                     <div className="rune-back-ability-info">{ability.name}</div>
+                    <div style={{ display: this.state[key] }} className="ability-hover-info">
+                      <span>{ability.name}</span>
+                      <span>
+                        AP Cost: {ability.apCost} Cooldown: {ability.cooldown}
+                      </span>
+                      <span>{ability.shortDescription}</span>
+                    </div>
                   </div>
                 );
               })}

@@ -10,10 +10,6 @@ import { Button } from 'react-materialize';
 
 import '../../styles/style.css';
 
-/*
-// PROPS - search, items, target
-*/
-
 class List extends Component {
   constructor() {
     super();
@@ -46,7 +42,10 @@ class List extends Component {
     const { search, data, target, faction } = this.props;
 
     const items = !Array.isArray(data)
-    ? [] : faction === 'all' ? data : data.filter(({ factions }) => factions.includes(faction))
+      ? []
+      : faction === 'all'
+      ? data
+      : data.filter(({ factions }) => factions.includes(faction));
 
     const listFiltered = !Array.isArray(items)
       ? []
@@ -85,21 +84,23 @@ class List extends Component {
           </div>
         </div>
         <div className="rune-list">
-        <div className="rune-list-area">
-          {listFiltered.length > 0
-            ? listFiltered.slice((page - 1) * itemPerPage, page * itemPerPage).map((item, key) => {
-                switch (target) {
-                  case 'Champion':
-                    return <Champion key={key} attr={item} />;
-                  case 'Equip':
-                    return <Equip key={key} attr={item} />;
-                  case 'Relic':
-                    return <Relic key={key} attr={item} />;
-                  default:
-                    return <Spell key={key} attr={item} />;
-                }
-              })
-            : 'No data found.'}
+          <div className="rune-list-area">
+            {listFiltered.length > 0
+              ? listFiltered
+                  .slice((page - 1) * itemPerPage, page * itemPerPage)
+                  .map((item, key) => {
+                    switch (target) {
+                      case 'Champion':
+                        return <Champion key={key} attr={item} />;
+                      case 'Equip':
+                        return <Equip key={key} attr={item} />;
+                      case 'Relic':
+                        return <Relic key={key} attr={item} />;
+                      default:
+                        return <Spell key={key} attr={item} />;
+                    }
+                  })
+              : 'No data found.'}
           </div>
         </div>
 

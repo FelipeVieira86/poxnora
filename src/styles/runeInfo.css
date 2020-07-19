@@ -256,7 +256,7 @@ span.rune-stat {
 
 .rune-back-description {
   text-align: center;
-  font: 10px arial,sans-serif;
+  font: 10px arial, sans-serif;
   line-height: 11px;
   color: #ffffff;
   overflow: hidden;
@@ -300,7 +300,6 @@ span.rune-stat {
   padding: 0;
 }
 
-
 .ability-detail {
   box-sizing: border-box;
   align-items: center;
@@ -311,9 +310,8 @@ span.rune-stat {
   flex-grow: 0;
 }
 
-
 .bg-black {
-  background-color: rgba(25,25,25,0.92);
+  background-color: rgba(25, 25, 25, 0.92);
   top: 88px;
   left: -100px;
   display: block;
@@ -323,7 +321,7 @@ span.rune-stat {
   font-size: 11px;
   color: white;
   padding: 2px 0;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   margin: 0;
   text-shadow: 0 0 2px #000;
   border-radius: 3px;
@@ -331,7 +329,7 @@ span.rune-stat {
 
 .ability-select {
   display: block;
-  font: 13px arial,sans-serif;
+  font: 13px arial, sans-serif;
   color: #ffffff;
   margin: 5px 0 0 10px;
 }
@@ -350,18 +348,21 @@ span.rune-stat {
 }
 
 .ability-hover-info {
-  background-color: rgba(25,25,25,0.92);
-  position: absolute;
+  background-color: rgba(25, 25, 25, 0.92);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
+  font-size: 12px;
   flex-direction: column;
-  left: -260px;
+  left: -275px;
+  padding: 10px;
+  position: absolute;
   top: 40px;
   width: 275px;
-  border-radius: 3px;
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 10px;
 }
 
-.hidden-0, .hidden-1, .hidden-2 {
+.hidden-0,
+.hidden-1,
+.hidden-2 {
   display: none;
 }
