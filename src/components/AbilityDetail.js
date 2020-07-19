@@ -43,10 +43,7 @@ class AbilityDetails extends Component {
     this.setState({ class2: this.state.class2 === '' ? 'hidden' : '', class1: 'hidden' });
   };
 
- 
-
   render() {
-    
     // const { ablty1, ablty2 } = this.state;
     const { AbilitySets } = this.props;
     const ablty1 = AbilitySets[0].abilities.find((ablty) => ablty.default === true);
@@ -55,6 +52,8 @@ class AbilityDetails extends Component {
       <div className="ability-upgrade-container">
         <div onClick={() => this.openAbility1()} className={`rune-back-ability-1`}>
           <img
+            onMouseEnter={() => this.setState({ hover1: '' })}
+            onMouseLeave={() => this.setState({ hover1: 'none' })}
             className="rune-back-ability-icon"
             src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ablty1.iconName}.gif`}
             alt=""
@@ -67,6 +66,7 @@ class AbilityDetails extends Component {
             {ablty1.name}
             {ablty1.level === 0 ? '' : `(${ablty1.level})`}
           </div>
+
           <div style={{ display: this.state.hover1 }} className="ability-hover-info">
             <span>{ablty1.name}</span>
             <span>
@@ -117,6 +117,8 @@ class AbilityDetails extends Component {
         </div>
         <div onClick={() => this.openAbility2()} className={`rune-back-ability-2`}>
           <img
+            onMouseEnter={() => this.setState({ hover2: '' })}
+            onMouseLeave={() => this.setState({ hover2: 'none' })}
             className="rune-back-ability-icon"
             src={`https://d2aao99y1mip6n.cloudfront.net/images/ability_icons/small/icon_${ablty2.iconName}.gif`}
             alt=""
