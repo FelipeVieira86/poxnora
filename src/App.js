@@ -5,7 +5,9 @@ import SpellList from './components/SpellList';
 import EquipList from './components/EquipList';
 import RelicList from './components/RelicList';
 import FactionSelect from './components/FactionSelect';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import RaceSelect from './components/RaceSelect';
+import ClassSelect from './components/ClassSelect';
 
 import './styles/style.css';
 import M from 'materialize-css';
@@ -16,8 +18,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      classe: 'all',
       searchTerm: 'all',
       faction: 'all',
+      races: 'all',
     };
   }
 
@@ -36,11 +40,18 @@ class App extends Component {
       <div className="App">
         <div className="search-container">
           <TextInput onKeyPress={this.setSearchTerm} id="find" label="Search" />
-          <FactionSelect onChange={(event) => this.setState({ faction: event.target.value })}/>
+          <ClassSelect onChange={(event) => this.setState({ classe: event.target.value })} />
+          <RaceSelect onChange={(event) => this.setState({ races: event.target.value })} />
+          <FactionSelect onChange={(event) => this.setState({ faction: event.target.value })} />
         </div>
         <div className="list-container">
           <div className="column">
-            <ChampionList faction={this.state.faction} search={this.state.searchTerm} />
+            <ChampionList
+              classe={this.state.classe}
+              race={this.state.races}
+              faction={this.state.faction}
+              search={this.state.searchTerm}
+            />
             <RelicList faction={this.state.faction} search={this.state.searchTerm} />
           </div>
           <div className="column">
