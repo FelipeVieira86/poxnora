@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import '../styles/runeInfo.css';
 import AbilityDetails from './AbilityDetail';
 
+// recebe o filtro por props em Champion.jsx 
+// envia os abilitySets via props para AbilityDetails(linha 134)
+
 export default class ChampionInfo extends Component {
   constructor(props) {
     super(props);

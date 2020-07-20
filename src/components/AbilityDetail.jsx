@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
+// recebe o AbilitySets vindo do ChampionInfo.jsx, bug ocorre aqui 
+
 class AbilityDetails extends Component {
   constructor(props) {
     super(props);
+    const { AbilitySets } = this.props
     this.state = {
       0: 'none',
       1: 'none',
@@ -12,12 +15,19 @@ class AbilityDetails extends Component {
       class1: 'hidden',
       class2: 'hidden',
       cost: this.props.noraCost,
-      ablty1: this.props.AbilitySets[0].abilities.find((ablty) => ablty.default === true),
-      ablty2: this.props.AbilitySets[1].abilities.find((ablty) => ablty.default === true),
+      // AbilitySets sempre tem 2 objetos, nem mais, nem menos.
+      // cada objeto dentro de abilitySets tem uma key chamada abilities, com 2 ou 3 habilidades dentro
+      // uma delas é a habilidade default, que é a que fica salva inicialmente no state
+      // esses 2 states que apresentam o bug
+      ablty1: AbilitySets[0].abilities.find((ablty) => ablty.default === true),
+      ablty2: AbilitySets[1].abilities.find((ablty) => ablty.default === true),
     };
   }
 
+  // função para selecionar as habilidades disponiveis no mesmo slot ao clicar na habilidade inicial
   selectAbility1 = async (nora, ablty) => {
+    // mesmo o eslint falando que é desnecessário o await, sem ele a info mostrada 
+    // e a nora retornada pro ChampionInfo via handler ficam erradas
     await this.setState({
       cost: this.state.cost + (nora - this.state.ablty1.noraCost),
       ablty1: ablty,
@@ -35,6 +45,8 @@ class AbilityDetails extends Component {
     return this.props.handler(this.state.cost);
   };
 
+
+  // função para mostar as habilidades disponiveis no mesmo slot ao clicar na habilidade inicial
   openAbility1 = () => {
     this.setState({ class1: this.state.class1 === '' ? 'hidden' : '', class2: 'hidden' });
   };
@@ -44,6 +56,8 @@ class AbilityDetails extends Component {
   };
 
   render() {
+    // descomenta a linha 61 e comenta a linha 63 e 64 para o bug ocorrer
+
     // const { ablty1, ablty2 } = this.state;
     const { AbilitySets } = this.props;
     const ablty1 = AbilitySets[0].abilities.find((ablty) => ablty.default === true);

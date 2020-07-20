@@ -6,7 +6,7 @@ import { Modal } from 'react-materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 import '../styles/modal.css';
 
-// recebe filtro, usa o {name} da props recebida, envia a props com o filtro pra ChampionInfo
+// recebe filtro, usa o {name} da props recebida de ListTemplate.jsx , envia a props com o filtro pra ChampionInfo
 
 export default class Champion extends Component {
   render() {
@@ -18,7 +18,7 @@ export default class Champion extends Component {
       preventScrolling: true,
       bottomSheet: false
     };
-
+    const { attr } = this.props
     return (
       <div className="rune-name-container">
         <Modal trigger={trigger} options={modalOptions} >
@@ -26,7 +26,7 @@ export default class Champion extends Component {
             <button className='modal-close right'>X</button>
           </div>
           <div className="modal-body">
-            <ChampionInfo attr={this.props.attr}/>
+            <ChampionInfo attr={attr}/>
           </div>
         </Modal>
       </div>

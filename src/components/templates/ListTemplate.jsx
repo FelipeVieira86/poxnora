@@ -11,7 +11,7 @@ import { Button } from 'react-materialize';
 import '../../styles/style.css';
 
 // filtro ocorre nesse arquivo, envia como props pra Champion.jsx
-
+// bug só ocorre com os champions, os outros 3 tipos de carta estão funcionando perfeitamente
 class List extends Component {
   constructor() {
     super();
@@ -22,6 +22,7 @@ class List extends Component {
     this.totalPages = 1;
   }
 
+  // função que controla as cartas mostradas por páginas
   changePage = (target) => {
     switch (target.getAttribute('label')) {
       case 'prev':
@@ -43,28 +44,34 @@ class List extends Component {
     const { page, itemPerPage } = this.state;
     const { search, data, target, faction, race, classe } = this.props;
 
+    // recebe o props com o array de objetos, e filtra por faction
     const factionFilter = !Array.isArray(data)
       ? []
       : faction === 'all'
       ? data
       : data.filter(({ factions }) => factions.includes(faction));
 
+    // recebe o filtro de faction e filtra mais uma vez por raça
     const raceFilter = !Array.isArray(factionFilter)
     ? []
     : race === 'all' || target !== 'Champion'
     ? factionFilter
     : factionFilter.filter(({races}) => races.includes(race))
 
+    // recebe o filtro de raça e filtra por classe
     const items = !Array.isArray(raceFilter)
     ? []
     : classe === 'all' || target !== 'Champion'
     ? raceFilter
     : raceFilter.filter(({classes}) => classes.includes(classe))
  
+
+    // recebe o filtro por classe e filtra por nome / habilidade / texto da carta
     const listFiltered = !Array.isArray(items)
       ? []
       : search === 'all'
       ? items
+      // caso o target não seja champion faz o filtro somente por nome ou texto da descrição
       : target !== 'Champion'
       ? items.filter(({ name, description }) => {
           return (
@@ -72,9 +79,12 @@ class List extends Component {
             description.toLowerCase().includes(search.toLowerCase())
           );
         })
+      // caso seja target champion, faz o filtro por nome ou habilidade...
+      // primeiro faz o filter por nome
       : items.filter(({ name, abilitySets, startingAbilities }) => {
           return (
             name.toLowerCase().includes(search.toLowerCase()) ||
+            // depois procura por habilidade
             abilitySets.filter((abilityset) =>
               abilityset.abilities.find((ability) =>
                 ability.name.toLowerCase().includes(search.toLowerCase()),
@@ -127,9 +137,9 @@ class List extends Component {
           >
             Prev
           </Button>
-          {/* <div>
+          <div>
             {page} / {this.totalPages}
-          </div> */}
+          </div>
           <Button
             onClick={({ target }) => {
               this.changePage(target);
