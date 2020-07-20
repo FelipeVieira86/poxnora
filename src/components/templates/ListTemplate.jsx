@@ -53,18 +53,17 @@ class List extends Component {
 
     // recebe o filtro de faction e filtra mais uma vez por raça
     const raceFilter = !Array.isArray(factionFilter)
-    ? []
-    : race === 'all' || target !== 'Champion'
-    ? factionFilter
-    : factionFilter.filter(({races}) => races.includes(race))
+      ? []
+      : race === 'all' || target !== 'Champion'
+      ? factionFilter
+      : factionFilter.filter(({races}) => races.includes(race))
 
     // recebe o filtro de raça e filtra por classe
     const items = !Array.isArray(raceFilter)
-    ? []
-    : classe === 'all' || target !== 'Champion'
-    ? raceFilter
-    : raceFilter.filter(({classes}) => classes.includes(classe))
- 
+      ? []
+      : classe === 'all' || target !== 'Champion'
+      ? raceFilter
+      : raceFilter.filter(({classes}) => classes.includes(classe))
 
     // recebe o filtro por classe e filtra por nome / habilidade / texto da carta
     const listFiltered = !Array.isArray(items)

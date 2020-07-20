@@ -9,19 +9,25 @@ import '../styles/modal.css';
 // recebe filtro, usa o {name} da props recebida de ListTemplate.jsx , envia a props com o filtro pra ChampionInfo
 
 export default class Champion extends Component {
-  render() {
-    
-    const { name } = this.props.attr;
-    const trigger = <p className="champion">{name}</p>;
+
+  constructor(props){
+    super(props);
 
     const modalOptions = {
       preventScrolling: true,
       bottomSheet: false
     };
-    const { attr } = this.props
+  }
+
+  render() {
+    
+    const { name } = this.props.attr;
+    const trigger = <p className="champion" onClick={() => {this.forceUpdate()}} >{name}</p>;
+
+    const { attr } = this.props;
     return (
       <div className="rune-name-container">
-        <Modal trigger={trigger} options={modalOptions} >
+        <Modal trigger={trigger} options={this.modalOptions} >
           <div className="modal-header">
             <button className='modal-close right'>X</button>
           </div>
