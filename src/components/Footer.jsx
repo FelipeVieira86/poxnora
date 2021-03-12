@@ -8,8 +8,7 @@ const devs = [
 class Footer extends Component {
   render() { 
     return ( <footer className="footer">
-    Made by:{' '}
-    {
+    Made by {
       <a href={devs[0][1]} target="_blank">
         {' '}
         {devs[0][0]}
