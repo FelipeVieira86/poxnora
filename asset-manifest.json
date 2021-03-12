@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/poxsite/static/css/main.18dc0b9c.chunk.css",
+    "main.js": "/poxsite/static/js/main.02861e06.chunk.js",
+    "main.js.map": "/poxsite/static/js/main.02861e06.chunk.js.map",
+    "runtime-main.js": "/poxsite/static/js/runtime-main.f6876b61.js",
+    "runtime-main.js.map": "/poxsite/static/js/runtime-main.f6876b61.js.map",
+    "static/css/2.5a510433.chunk.css": "/poxsite/static/css/2.5a510433.chunk.css",
+    "static/js/2.aff8960d.chunk.js": "/poxsite/static/js/2.aff8960d.chunk.js",
+    "static/js/2.aff8960d.chunk.js.map": "/poxsite/static/js/2.aff8960d.chunk.js.map",
+    "index.html": "/poxsite/index.html",
+    "precache-manifest.1932213be310b8fc67594945783bb6ec.js": "/poxsite/precache-manifest.1932213be310b8fc67594945783bb6ec.js",
+    "service-worker.js": "/poxsite/service-worker.js",
+    "static/css/2.5a510433.chunk.css.map": "/poxsite/static/css/2.5a510433.chunk.css.map",
+    "static/css/main.18dc0b9c.chunk.css.map": "/poxsite/static/css/main.18dc0b9c.chunk.css.map",
+    "static/js/2.aff8960d.chunk.js.LICENSE.txt": "/poxsite/static/js/2.aff8960d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f6876b61.js",
+    "static/css/2.5a510433.chunk.css",
+    "static/js/2.aff8960d.chunk.js",
+    "static/css/main.18dc0b9c.chunk.css",
+    "static/js/main.02861e06.chunk.js"
+  ]
+}
