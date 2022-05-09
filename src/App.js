@@ -20,8 +20,6 @@ class App extends Component {
     this.state = {
       classe: 'all',
       searchTerm: 'all',
-      faction: 'all',
-      races: 'all',
     };
   }
 
