@@ -19,9 +19,8 @@ class App extends Component {
     super();
     this.state = {
       classe: 'all',
-      searchTerm: 'all',
       faction: 'all',
-      races: 'all',
+      racaNegra: 'all',
     };
   }
 
